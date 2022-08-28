@@ -3,11 +3,11 @@ import 'package:grouped_buttons/grouped_buttons.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(VeganBreakfast());
+  runApp(GrandFamilyBox());
 }
 
-class VeganBreakfast extends StatefulWidget {
-  const VeganBreakfast({Key? key}) : super(key: key);
+class GrandFamilyBox extends StatefulWidget {
+  const GrandFamilyBox({Key? key}) : super(key: key);
 
   // This widget is the home page of your application. It is stateful, meaning
   // that it has a State object (defined below) that contains fields that affect
@@ -19,16 +19,15 @@ class VeganBreakfast extends StatefulWidget {
   // always marked "final".
 
   @override
-  State<VeganBreakfast> createState() => _VeganBreakfastState();
+  State<GrandFamilyBox> createState() => _GrandFamilyBoxState();
 }
 
-class _VeganBreakfastState extends State<VeganBreakfast> {
+class _GrandFamilyBoxState extends State<GrandFamilyBox> {
   bool isFavourite = false;
   IconData x = (Icons.favorite_outline);
   Color y = Colors.black;
   int quantity = 1;
-  double price = 50;
-  double smallPrice = 50.00;
+  double price = 250;
 
   String selectedSize = '';
   int favourite = 0;
@@ -82,8 +81,7 @@ class _VeganBreakfastState extends State<VeganBreakfast> {
                             favourite++;
                           }
                         });
-
-                         },
+                      },
                       icon: Icon(
                         x,
                         size: 30,
@@ -101,14 +99,14 @@ class _VeganBreakfastState extends State<VeganBreakfast> {
                     width: 200,
                     decoration: BoxDecoration(
                         image: DecorationImage(
-                          image: AssetImage("images/image9.png"),
+                          image: AssetImage("images/burger0.png"),
                           fit: BoxFit.cover,
                         ),
                         borderRadius: BorderRadius.circular(20)),
                     height: 200,
                   )),
               SizedBox(
-                height: 50,
+                height: 60,
               ),
               Row(
                 children: [
@@ -116,11 +114,11 @@ class _VeganBreakfastState extends State<VeganBreakfast> {
                     width: 10,
                   ),
                   Text(
-                    'Vegan Breakfast',
+                    'Grand Family Box',
                     style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                   ),
                   SizedBox(
-                      width: 215
+                      width: 185
                   ),
                   Text('$price\$',
                       style: TextStyle(
@@ -259,7 +257,7 @@ class _VeganBreakfastState extends State<VeganBreakfast> {
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
                   ),
                   SizedBox(
-                    width: 220,
+                    width: 230,
                   ),
                   Text(
                     '${price}\$',
@@ -280,7 +278,7 @@ class _VeganBreakfastState extends State<VeganBreakfast> {
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
                   ),
                   SizedBox(
-                    width: 235,
+                    width: 240,
                   ),
                   Text(
                     '${price * quantity}\$',

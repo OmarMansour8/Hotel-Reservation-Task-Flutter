@@ -31,6 +31,12 @@ dependencies:
     sdk: flutter
   grouped_buttons: ^1.0.2
   google_maps_flutter: ^2.1.12
+  geolocator: ^9.0.1
+  firebase_core: ^1.21.0
+  firebase_auth: ^3.6.4
+  firebase_database: ^9.1.2
+  cloud_firestore: ^3.4.5
+
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -70,7 +76,25 @@ flutter:
      - images/image8.jpg
      - images/image9.png
      - images/pizza-4k-image-for-wallpaper-preview.jpg
-#     - images/a_dot_ham.jpeg
+     - images/logo.png
+     - images/breakfast2.jpg
+     - images/breakfast3.png
+     - images/breakfast4.jpg
+     - images/breakfast5.png
+     - images/burger1.jpg
+     - images/burger2.jpg
+     - images/burger0.png
+     - images/pizza1.jpg
+     - images/pizza2.jpg
+     - images/pizza3.jpg
+     - images/pasta1.jpg
+     - images/pasta2.png
+     - images/JDB2JGEUIBG27ITHDCQLBACG4Y.jpg
+     - images/unyStW.png
+
+
+
+  #     - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

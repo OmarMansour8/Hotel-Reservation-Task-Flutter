@@ -1,10 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:stomache/start.dart';
 //import 'package:webview_flutter/webview_flutter.dart';
 import 'mainMenu.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
+
 import 'breakfast.dart';
 import 'pizza_add_to_cart.dart';
 import 'Healthy_Taco_Salad.dart';
-void main() {
+void main() async{
+
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+      options: DefaultFirebaseOptions.currentPlatform
+  );
   runApp(MaterialApp(
       home:MyApp()));
 }
@@ -32,6 +41,7 @@ class _MyAppState extends State<MyApp> {
 
       'Cheesy Pizza': (context) => MyHomePage(),
       'Healthy Taco Salad': (context) => HealthyTacoSalad(),
+
 
     }
 

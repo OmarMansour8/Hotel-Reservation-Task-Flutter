@@ -1,20 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:stomache/BegalWithCreamCheese.dart';
-import 'package:stomache/CreamyEggs.dart';
-import 'package:stomache/FrenchToast.dart';
-import 'package:stomache/FruityPancake.dart';
+import 'package:stomache/BurgerWithFetaCream.dart';
+import 'package:stomache/Fire_Burger.dart';
+import 'package:stomache/GrandFamilyBox.dart';
+import 'package:stomache/OmahaBurger.dart';
+import 'package:stomache/pizza_add_to_cart.dart';
 //import 'package:webview_flutter/webview_flutter.dart';
 import 'main.dart';
 
-class breakfast extends StatefulWidget {
+class burger extends StatefulWidget {
 
-  const breakfast({Key? key}) : super(key: key);
+  const burger({Key? key}) : super(key: key);
 
   @override
-  State<breakfast> createState() => _breakfastState();
+  State<burger> createState() => _burgerState();
 }
 
-class _breakfastState extends State<breakfast> {
+class _burgerState extends State<burger> {
 
 //  late WebViewController controller;
   var _index = 0;
@@ -26,13 +27,60 @@ class _breakfastState extends State<breakfast> {
     return
 
 
-
-
       Column(children:<Widget> [
 
         Row(children:<Widget> [
+          Container(
+            width: 375,
+            height: 280,
+            padding: EdgeInsets.only(top: 20),
 
-          ///////////Vegan-Breakfast/////////////
+            child: Card(
+
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
+              elevation: 10,
+              color: Colors.white,
+              child:Container(
+
+                child:
+                ListTile(
+
+                  contentPadding: EdgeInsets.only(left: 20,top: 200,right: 18),
+                  trailing: Icon(Icons.add_shopping_cart),
+                  onTap: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>GrandFamilyBox()));
+                  },
+                  iconColor: Colors.deepOrange,
+
+                  title: Text("Grand Family Box",style: TextStyle(fontSize: 17)),
+
+
+                ),
+
+                decoration: BoxDecoration(
+
+                  borderRadius: BorderRadius.all( Radius.circular(25)),
+                  image: DecorationImage(image: AssetImage("images/burger0.png"),
+                    scale: 1,
+                    alignment: AlignmentDirectional.topCenter,
+                  ),
+                ),
+              ),
+
+
+
+            ),
+
+          ),
+
+        ],),
+
+
+
+
+
+        Row(children:<Widget> [
+          ///////////Cheesy Burger/////////////
 
           Container(
             width: 180,
@@ -51,10 +99,12 @@ class _breakfastState extends State<breakfast> {
 
                   contentPadding: EdgeInsets.only(left: 20,top: 108,right: 18),
                   trailing: Icon(Icons.add_shopping_cart),
-                  onTap: (){},
+                  onTap: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>MyHomePage()));
+                  },
                   iconColor: Colors.deepOrange,
 
-                  title: Text("Vegan Breakfast",style: TextStyle(fontSize: 14)),
+                  title: Text("Cheesy Burger",style: TextStyle(fontSize: 14)),
 
 
                 ),
@@ -62,7 +112,120 @@ class _breakfastState extends State<breakfast> {
                 decoration: BoxDecoration(
 
                   borderRadius: BorderRadius.all( Radius.circular(25)),
-                  image: DecorationImage(image: AssetImage("images/image9.png"),
+                  image: DecorationImage(image: AssetImage("images/image4.jpeg"),
+                    scale: 1,
+                    alignment: AlignmentDirectional.topCenter,
+                  ),
+                ),
+              ),
+
+
+
+            ),
+
+          ),
+
+          SizedBox(width: 10),
+
+
+          ///////////////Fire Burger///////////////
+          Container(
+            width: 180,
+            height: 190,
+            padding: EdgeInsets.only(top: 20),
+
+            child: Card(
+
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
+              elevation: 10,
+              color: Colors.white,
+              child:Container(
+
+                child:
+                ListTile(
+
+                  contentPadding: EdgeInsets.only(left: 20,top: 108,right: 18),
+                  trailing: Icon(Icons.add_shopping_cart),
+                  onTap: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>FireBurger()));
+                  },
+                  iconColor: Colors.deepOrange,
+
+                  title: Text("Fire Burger",style: TextStyle(fontSize: 14)),
+
+
+                ),
+
+                decoration: BoxDecoration(
+
+                  borderRadius: BorderRadius.all( Radius.circular(25)),
+                  image: DecorationImage(image: AssetImage("images/image5.jpg"),
+                    scale: 1,
+                    alignment: AlignmentDirectional.topCenter,
+                  ),
+                ),
+              ),
+
+
+
+            ),
+
+          ),
+
+        ],),
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/////////////////Greek Burger with Feta Cream//////////////////
+
+        Row(children:<Widget> [
+
+          ///////////Bagel with Cream Cheese/////////////
+
+          Container(
+            width: 180,
+            height: 190,
+            padding: EdgeInsets.only(top: 20),
+
+            child: Card(
+
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
+              elevation: 10,
+              color: Colors.white,
+              child:Container(
+
+                child:
+                ListTile(
+
+                  contentPadding: EdgeInsets.only(left: 20,top: 108,right: 18),
+                  trailing: Icon(Icons.add_shopping_cart),
+                  onTap: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>BurgerWithCreamFeta()));
+                  },
+                  iconColor: Colors.deepOrange,
+
+
+                  title:
+                  Text("Burger with Feta Cream",style: TextStyle(fontSize: 14),),
+
+
+                ),
+
+                decoration: BoxDecoration(
+
+                  borderRadius: BorderRadius.all( Radius.circular(25)),
+                  image: DecorationImage(image: AssetImage("images/burger1.jpg"),
                     scale: 1,
                     alignment: AlignmentDirectional.topCenter,
                   ),
@@ -97,11 +260,11 @@ class _breakfastState extends State<breakfast> {
                   contentPadding: EdgeInsets.only(left: 20,top: 108,right: 18),
                   trailing: Icon(Icons.add_shopping_cart),
                   onTap: (){
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=>FruityPancake()));
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>OmahaBurger()));
                   },
                   iconColor: Colors.deepOrange,
 
-                  title: Text("Fruity Pancake",style: TextStyle(fontSize: 14)),
+                  title: Text("Omaha Burger",style: TextStyle(fontSize: 14)),
 
 
                 ),
@@ -109,160 +272,7 @@ class _breakfastState extends State<breakfast> {
                 decoration: BoxDecoration(
 
                   borderRadius: BorderRadius.all( Radius.circular(25)),
-                  image: DecorationImage(image: AssetImage("images/breakfast3.png"),
-                    scale: 1,
-                    alignment: AlignmentDirectional.topCenter,
-                  ),
-                ),
-              ),
-
-
-
-            ),
-
-          ),
-
-        ],),
-
-
-
-
-
-        Row(children:<Widget>[
-          Container(
-            width: 370,
-            height: 250,
-            padding: EdgeInsets.only(top: 20),
-
-            child: Card(
-
-              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
-              elevation: 10,
-              color: Colors.white,
-              child:Container(
-
-                child:
-                ListTile(
-
-                  contentPadding: EdgeInsets.only(left: 20,top: 174,right: 18),
-                  trailing: Icon(Icons.add_shopping_cart),
-                  onTap: (){
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=>FrenchToast()));
-                  },
-                  iconColor: Colors.deepOrange,
-
-                  title: Text("French Toasts",style: TextStyle(fontSize: 14)),
-
-
-                ),
-
-                decoration: BoxDecoration(
-
-                  borderRadius: BorderRadius.all( Radius.circular(25)),
-                  image: DecorationImage(image: AssetImage("images/breakfast2.jpg"),
-                    scale: 1,
-                    alignment: AlignmentDirectional.topCenter,
-                  ),
-                ),
-              ),
-
-
-
-            ),
-
-          ),
-        ],),
-
-
-
-
-
-
-
-
-
-        Row(children:<Widget> [
-
-          ///////////Bagel with Cream Cheese/////////////
-
-          Container(
-            width: 180,
-            height: 190,
-            padding: EdgeInsets.only(top: 20),
-
-            child: Card(
-
-              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
-              elevation: 10,
-              color: Colors.white,
-              child:Container(
-
-                child:
-                ListTile(
-
-                  contentPadding: EdgeInsets.only(left: 20,top: 108,right: 18),
-                  trailing: Icon(Icons.add_shopping_cart),
-                  onTap: (){
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=>BegalWithCreamCheese()));
-                  },
-                  iconColor: Colors.deepOrange,
-
-                  title: Text("Bagel with Cream Cheese",style: TextStyle(fontSize: 14)),
-
-
-                ),
-
-                decoration: BoxDecoration(
-
-                  borderRadius: BorderRadius.all( Radius.circular(25)),
-                  image: DecorationImage(image: AssetImage("images/breakfast4.jpg"),
-                    scale: 1,
-                    alignment: AlignmentDirectional.topCenter,
-                  ),
-                ),
-              ),
-
-
-
-            ),
-
-          ),
-
-          SizedBox(width: 10),
-
-
-          ///////////////Creamy Eggs///////////////
-          Container(
-            width: 180,
-            height: 190,
-            padding: EdgeInsets.only(top: 20),
-
-            child: Card(
-
-              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
-              elevation: 10,
-              color: Colors.white,
-              child:Container(
-
-                child:
-                ListTile(
-
-                  contentPadding: EdgeInsets.only(left: 20,top: 108,right: 18),
-                  trailing: Icon(Icons.add_shopping_cart),
-                  onTap: (){
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=>CreamyEggs()));
-                  },
-                  iconColor: Colors.deepOrange,
-
-                  title: Text("Creamy Eggs",style: TextStyle(fontSize: 14)),
-
-
-                ),
-
-                decoration: BoxDecoration(
-
-                  borderRadius: BorderRadius.all( Radius.circular(25)),
-                  image: DecorationImage(image: AssetImage("images/breakfast5.png"),
+                  image: DecorationImage(image: AssetImage("images/burger2.jpg"),
                     scale: 1,
                     alignment: AlignmentDirectional.topCenter,
                   ),
@@ -277,9 +287,6 @@ class _breakfastState extends State<breakfast> {
 
         ],),
       ],);
-
-
-
 
   }
 }

@@ -81,13 +81,7 @@ class _ChocolateLavaCakeState extends State<ChocolateLavaCake> {
                             favourite++;
                           }
                         });
-
-                        Navigator.pushAndRemoveUntil(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => ChocolateLavaCake()),
-                                (Route<dynamic> route) => false);
-                      },
+  },
                       icon: Icon(
                         x,
                         size: 30,
@@ -112,7 +106,7 @@ class _ChocolateLavaCakeState extends State<ChocolateLavaCake> {
                     height: 200,
                   )),
               SizedBox(
-                height: 10,
+                height: 60,
               ),
               Row(
                 children: [
@@ -293,7 +287,7 @@ class _ChocolateLavaCakeState extends State<ChocolateLavaCake> {
                 ],
               ),
               SizedBox(
-                height: 130,
+                height: 90,
               ),
               Row(
                 children: [

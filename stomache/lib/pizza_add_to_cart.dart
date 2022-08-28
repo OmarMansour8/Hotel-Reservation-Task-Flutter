@@ -64,7 +64,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       width: 125,
                     ),
                     Text(
-                      'details',
+                      'Details',
                       style: TextStyle(fontSize: 16),
                     ),
                     SizedBox(
@@ -84,11 +84,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           }
                         });
 
-                        Navigator.pushAndRemoveUntil(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => MyHomePage()),
-                            (Route<dynamic> route) => false);
+
                       },
                       icon: Icon(
                         x,
@@ -114,7 +110,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 height: 200,
               )),
               SizedBox(
-                height: 10,
+                height: 50,
               ),
               Row(
                 children: [
@@ -122,11 +118,11 @@ class _MyHomePageState extends State<MyHomePage> {
                     width: 10,
                   ),
                   Text(
-                    'Pizza',
+                    'Cheesy Pizza',
                     style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                   ),
                   SizedBox(
-                    width: 285,
+                    width: 230,
                   ),
                   Text('$price\$',
                       style: TextStyle(
@@ -265,7 +261,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
                   ),
                   SizedBox(
-                    width: 235,
+                    width: 226,
                   ),
                   Text(
                     '${price}\$',
@@ -286,7 +282,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
                   ),
                   SizedBox(
-                    width: 250,
+                    width: 240,
                   ),
                   Text(
                     '${price * quantity}\$',
@@ -295,7 +291,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 ],
               ),
               SizedBox(
-                height: 130,
+                height: 90,
               ),
               Row(
                 children: [

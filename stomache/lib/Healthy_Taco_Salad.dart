@@ -84,12 +84,7 @@ class _HealthyTacoSaladState extends State<HealthyTacoSalad> {
                           }
                         });
 
-                        Navigator.pushAndRemoveUntil(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => HealthyTacoSalad()),
-                                (Route<dynamic> route) => false);
-                      },
+                          },
                       icon: Icon(
                         x,
                         size: 30,
@@ -114,7 +109,7 @@ class _HealthyTacoSaladState extends State<HealthyTacoSalad> {
                     height: 200,
                   )),
               SizedBox(
-                height: 10,
+                height: 50,
               ),
               Row(
                 children: [
@@ -265,7 +260,7 @@ class _HealthyTacoSaladState extends State<HealthyTacoSalad> {
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
                   ),
                   SizedBox(
-                    width: 235,
+                    width: 230,
                   ),
                   Text(
                     '${price}\$',
@@ -286,7 +281,7 @@ class _HealthyTacoSaladState extends State<HealthyTacoSalad> {
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
                   ),
                   SizedBox(
-                    width: 250,
+                    width: 240,
                   ),
                   Text(
                     '${price * quantity}\$',
@@ -295,7 +290,7 @@ class _HealthyTacoSaladState extends State<HealthyTacoSalad> {
                 ],
               ),
               SizedBox(
-                height: 130,
+                height: 90,
               ),
               Row(
                 children: [

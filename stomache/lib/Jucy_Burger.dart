@@ -84,12 +84,7 @@ class _JucyBurgerState extends State<JucyBurger> {
                           }
                         });
 
-                        Navigator.pushAndRemoveUntil(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => JucyBurger()),
-                                (Route<dynamic> route) => false);
-                      },
+                       },
                       icon: Icon(
                         x,
                         size: 30,
@@ -114,7 +109,7 @@ class _JucyBurgerState extends State<JucyBurger> {
                     height: 200,
                   )),
               SizedBox(
-                height: 10,
+                height: 50,
               ),
               Row(
                 children: [
@@ -244,7 +239,7 @@ class _JucyBurgerState extends State<JucyBurger> {
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
                   ),
                   SizedBox(
-                    width: 290,
+                    width: 280,
                   ),
                   Text(
                     'x${quantity}',
@@ -265,7 +260,7 @@ class _JucyBurgerState extends State<JucyBurger> {
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
                   ),
                   SizedBox(
-                    width: 235,
+                    width: 225,
                   ),
                   Text(
                     '${price}\$',
@@ -286,7 +281,7 @@ class _JucyBurgerState extends State<JucyBurger> {
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
                   ),
                   SizedBox(
-                    width: 250,
+                    width: 240,
                   ),
                   Text(
                     '${price * quantity}\$',
@@ -295,7 +290,7 @@ class _JucyBurgerState extends State<JucyBurger> {
                 ],
               ),
               SizedBox(
-                height: 130,
+                height: 90,
               ),
               Row(
                 children: [

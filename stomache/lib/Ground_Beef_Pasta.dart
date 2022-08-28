@@ -84,12 +84,7 @@ class _GroundBeefPastaState extends State<GroundBeefPasta> {
                           }
                         });
 
-                        Navigator.pushAndRemoveUntil(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => GroundBeefPasta()),
-                                (Route<dynamic> route) => false);
-                      },
+                        },
                       icon: Icon(
                         x,
                         size: 30,
@@ -114,7 +109,7 @@ class _GroundBeefPastaState extends State<GroundBeefPasta> {
                     height: 200,
                   )),
               SizedBox(
-                height: 10,
+                height: 50,
               ),
               Row(
                 children: [
@@ -265,7 +260,7 @@ class _GroundBeefPastaState extends State<GroundBeefPasta> {
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
                   ),
                   SizedBox(
-                    width: 235,
+                    width: 220,
                   ),
                   Text(
                     '${price}\$',
@@ -286,7 +281,7 @@ class _GroundBeefPastaState extends State<GroundBeefPasta> {
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
                   ),
                   SizedBox(
-                    width: 245,
+                    width: 235,
                   ),
                   Text(
                     '${price * quantity}\$',
@@ -295,7 +290,7 @@ class _GroundBeefPastaState extends State<GroundBeefPasta> {
                 ],
               ),
               SizedBox(
-                height: 130,
+                height: 90,
               ),
               Row(
                 children: [

@@ -84,12 +84,7 @@ class _TunaSaladState extends State<TunaSalad> {
                           }
                         });
 
-                        Navigator.pushAndRemoveUntil(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => TunaSalad()),
-                                (Route<dynamic> route) => false);
-                      },
+                          },
                       icon: Icon(
                         x,
                         size: 30,
@@ -114,7 +109,7 @@ class _TunaSaladState extends State<TunaSalad> {
                     height: 200,
                   )),
               SizedBox(
-                height: 10,
+                height: 50,
               ),
               Row(
                 children: [
@@ -295,7 +290,7 @@ class _TunaSaladState extends State<TunaSalad> {
                 ],
               ),
               SizedBox(
-                height: 130,
+                height: 90,
               ),
               Row(
                 children: [
@@ -311,7 +306,7 @@ class _TunaSaladState extends State<TunaSalad> {
                       child: Row(
                         children: [
                           SizedBox(
-                            width: 130,
+                            width: 90,
                           ),
                           Text('Add to cart'),
                           SizedBox(

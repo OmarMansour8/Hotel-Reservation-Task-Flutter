@@ -2,10 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:stomache/ChocolateLavaCake.dart';
 import 'package:stomache/Fire_Burger.dart';
 import 'package:stomache/Ground_Beef_Pasta.dart';
+import 'package:stomache/Healthy_Taco_Salad.dart';
 import 'package:stomache/Jucy_Burger.dart';
+import 'package:stomache/PastaCategory.dart';
+import 'package:stomache/PizzaCategory.dart';
+import 'package:stomache/SaladCategory.dart';
 import 'package:stomache/Tuna_Salad.dart';
 import 'package:stomache/Vegan_Breakfast.dart';
+import 'package:stomache/burgercategory.dart';
 import 'package:stomache/map.dart';
+import 'package:stomache/offers.dart';
+import 'package:stomache/start.dart';
 //import 'package:webview_flutter/webview_flutter.dart';
 import 'mainMenu.dart';
 import 'breakfast.dart';
@@ -14,8 +21,7 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 
 void main() {
-  runApp(MaterialApp(
-      home:homePage()));
+  runApp(homePage());
 }
 
 class homePage extends StatefulWidget {
@@ -30,18 +36,16 @@ class _homePageState extends State<homePage> {
 
 //  late WebViewController controller;
   var _index = 0;
-  final LatLng _location = const LatLng(30.0151010, 31.287760);
-  late GoogleMapController mapController;
-  void _myMaCreated (GoogleMapController controller){
-    mapController = controller;
-  }
-
 
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
+    return MaterialApp(
+      home: Scaffold(
+
+
         appBar: AppBar(
+
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.only(bottomLeft:Radius.circular(30) ,bottomRight:Radius.circular(30) )),
           elevation: 5,
           iconTheme:IconThemeData(color: Colors.white),
@@ -71,7 +75,9 @@ class _homePageState extends State<homePage> {
                   shape: BoxShape.circle,
                   color: Colors.deepOrange,
                 ),
-                child: Icon(Icons.logout,size: 20,color: Colors.white,),
+                child: IconButton(onPressed: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>start()));
+                },icon:Icon(Icons.logout,size: 20,color: Colors.white,)),
               )
 
 
@@ -88,21 +94,23 @@ class _homePageState extends State<homePage> {
             children:<Widget> [
 
               DrawerHeader(
+                child:Container(
 
-                margin: EdgeInsets.zero,
-                decoration: BoxDecoration(color: Colors.deepOrange,border: Border.all(color: Colors.deepOrange),),
-                child: Text("More",
-                    style: TextStyle(color: Colors.white),
-                    textAlign: TextAlign.center,textScaleFactor: 2),
-                padding: EdgeInsets.fromLTRB(0, 65, 0, 0),
+                  decoration:BoxDecoration(image:DecorationImage
+                    (image:AssetImage("images/logo.png"),fit: BoxFit.cover,),
+                      borderRadius:BorderRadius.only(bottomLeft: Radius.circular(50),
+                          topRight: Radius.circular(50))),
+
+
+                ),
               ),
 
               ListTile(
 
                 onTap: () {
-                  Navigator.pushNamed(context, '');
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>homePage()));
                 },
-                contentPadding: EdgeInsets.fromLTRB(16, 20, 20, 20),
+                contentPadding: EdgeInsets.fromLTRB(15, 0, 20, 0),
                 // leading:Image(image:NetworkImage("https://www.pngitem.com/pimgs/m/248-2486809_transparent-vegetable-pizza-png-png-download.png"),
                 //  width: 70,),
                 title: Text("Main Menu", style: TextStyle(color: Colors.white),),
@@ -114,7 +122,7 @@ class _homePageState extends State<homePage> {
                   Navigator.pushNamed(context, '');
                 },
 
-                //  contentPadding: EdgeInsets.all(20),
+                contentPadding: EdgeInsets.fromLTRB(15, 0, 20, 0),
 
                 // leading:Image(image:NetworkImage("https://www.seekpng.com/png/full/148-1483373_cheese-pizza-cheese-pizza-top-view-png.png",),
                 //   width: 50,),
@@ -122,10 +130,35 @@ class _homePageState extends State<homePage> {
                 trailing: Icon(Icons.arrow_forward_ios,color:Colors.white),
               ),
               ListTile(
+
                 onTap: () {
                   Navigator.pushNamed(context, '');
                 },
-                contentPadding: EdgeInsets.fromLTRB(15, 20, 20, 20),
+                contentPadding: EdgeInsets.fromLTRB(15, 0, 20, 0),
+                // leading:Image(image:NetworkImage("https://www.pngitem.com/pimgs/m/248-2486809_transparent-vegetable-pizza-png-png-download.png"),
+                //  width: 70,),
+                title: Text("My Order", style: TextStyle(color: Colors.white),),
+                trailing: Icon(Icons.arrow_forward_ios,color:Colors.white),
+
+              ),
+              ListTile(
+
+                onTap: () {
+                  Navigator.pushNamed(context, '');
+                },
+                contentPadding: EdgeInsets.fromLTRB(15, 0, 20, 0),
+                // leading:Image(image:NetworkImage("https://www.pngitem.com/pimgs/m/248-2486809_transparent-vegetable-pizza-png-png-download.png"),
+                //  width: 70,),
+                title: Text("Favorites", style: TextStyle(color: Colors.white),),
+                trailing: Icon(Icons.arrow_forward_ios,color:Colors.white),
+
+              ),
+
+              ListTile(
+                onTap: () {
+                  Navigator.pushNamed(context, '');
+                },
+                contentPadding: EdgeInsets.fromLTRB(15, 0, 20, 20),
                 // leading:Image(image:NetworkImage("https://www.pngall.com/wp-content/uploads/4/French-Fries-PNG-File.png"),
                 //   width: 70,),
                 title: Text("Settings", style: TextStyle(color: Colors.white),),
@@ -149,7 +182,7 @@ class _homePageState extends State<homePage> {
 
 
               DefaultTabController(
-                length: 8,
+                length: 6,
                 child: Column(
                   children: <Widget> [
 
@@ -188,20 +221,11 @@ class _homePageState extends State<homePage> {
                           Container(width: 80,
                             child: Tab(text: "Pasta",),),],),
 
-                        Row(children:<Widget> [
-                          Container(child: Tab(icon: Icon(Icons.restaurant_outlined)),),
-                          Container(width: 80,
-                            child: Tab(text: "Salads",),),],),
 
                         Row(children:<Widget> [
                           Container(child: Tab(icon: Icon(Icons.cake)),),
                           Container(width: 80,
-                            child: Tab(text: "Desserts",),),],),
-
-                        Row(children:<Widget> [
-                          Container(child: Tab(icon: Icon(Icons.free_breakfast_rounded)),),
-                          Container(width: 80,
-                            child: Tab(text: "Drinks",),),],),
+                            child: Tab(text: "Salads",),),],),
 
 
                       ],
@@ -216,6 +240,16 @@ class _homePageState extends State<homePage> {
                           ListView(
                             shrinkWrap: true,
                             children: <Widget> [
+
+                              Row(children:<Widget> [
+                                Container(
+
+                                  child: Text(" Popular Items",
+                                    style: TextStyle(fontSize: 24,fontWeight:FontWeight.bold,height: 2,),),
+
+                                )
+
+                              ]),
 
 
                               Column(
@@ -242,7 +276,7 @@ class _homePageState extends State<homePage> {
                                             contentPadding: EdgeInsets.only(left: 20,top: 108,right: 18),
                                             trailing: Icon(Icons.add_shopping_cart),
                                             onTap: (){
-                                              Navigator.pushNamed(context, 'Healthy Taco Salad');
+                                              Navigator.push(context, MaterialPageRoute(builder: (context)=>HealthyTacoSalad()));
                                             },
                                             iconColor: Colors.deepOrange,
 
@@ -267,7 +301,7 @@ class _homePageState extends State<homePage> {
 
                                     ),
 
-                                    SizedBox(width: 15),
+                                    SizedBox(width: 10),
 
                                     ///////////////////////Jucy Burger//////////////////
 
@@ -289,7 +323,7 @@ class _homePageState extends State<homePage> {
                                             contentPadding: EdgeInsets.only(left: 20,top: 108,right: 18),
                                             trailing: Icon(Icons.add_shopping_cart),
                                             onTap: (){
-                                              Navigator.of(context).push(MaterialPageRoute(builder: (context)=>JucyBurger()));
+                                              Navigator.push(context, MaterialPageRoute(builder: (context)=>JucyBurger()));
 
                                             },
                                             iconColor: Colors.deepOrange,
@@ -334,7 +368,6 @@ class _homePageState extends State<homePage> {
                                         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
                                         elevation: 10,
                                         color: Colors.white,
-
                                         child:Container(
 
                                           child:
@@ -342,9 +375,8 @@ class _homePageState extends State<homePage> {
 
                                             contentPadding: EdgeInsets.only(left: 20,top: 108,right: 18),
                                             trailing: Icon(Icons.add_shopping_cart),
-
                                             onTap: (){
-                                              Navigator.of(context).push(MaterialPageRoute(builder: (context)=>MyHomePage()));
+                                              Navigator.push(context, MaterialPageRoute(builder: (context)=>MyHomePage()));
 
                                             },
                                             iconColor: Colors.deepOrange,
@@ -360,7 +392,6 @@ class _homePageState extends State<homePage> {
                                             image: DecorationImage(image: AssetImage("images/image6.jpeg"),
                                               scale: 1,
                                               alignment: AlignmentDirectional.topCenter,
-
                                             ),
                                           ),
                                         ),
@@ -371,7 +402,7 @@ class _homePageState extends State<homePage> {
 
                                     ),
 
-                                    SizedBox(width: 15),
+                                    SizedBox(width: 10),
 
 
                                     //////////////////Vegan Breakfast//////////////
@@ -393,7 +424,7 @@ class _homePageState extends State<homePage> {
                                             contentPadding: EdgeInsets.only(left: 20,top: 108,right: 18),
                                             trailing: Icon(Icons.add_shopping_cart),
                                             onTap: (){
-                                              Navigator.of(context).push(MaterialPageRoute(builder: (context)=>VeganBreakfast()));
+                                              Navigator.push(context, MaterialPageRoute(builder: (context)=>VeganBreakfast()));
 
                                             },
                                             iconColor: Colors.deepOrange,
@@ -420,13 +451,23 @@ class _homePageState extends State<homePage> {
                                     ),
                                   ],),
 
+                                  Row(children:<Widget> [
+                                    Container(
+
+                                      child: Text(" Best Dishes",
+                                        style: TextStyle(fontSize: 24,fontWeight:FontWeight.bold,height: 2,),),
+
+                                    )
+
+                                  ]),
+
 
                                   Row(children:<Widget> [
                                     ////////////////Ground Beef Pasta/////////////
                                     Container(
                                       width: 180,
                                       height: 190,
-                                      padding: EdgeInsets.only(top: 20),
+                                      padding: EdgeInsets.only(top: 10),
 
                                       child: Card(
 
@@ -441,8 +482,7 @@ class _homePageState extends State<homePage> {
                                             contentPadding: EdgeInsets.only(left: 20,top: 108,right: 18),
                                             trailing: Icon(Icons.add_shopping_cart),
                                             onTap: (){
-                                              Navigator.of(context).push(MaterialPageRoute(builder: (context)=>GroundBeefPasta()));
-
+                                              Navigator.push(context, MaterialPageRoute(builder: (context)=>GroundBeefPasta()));
 
                                             },
                                             iconColor: Colors.deepOrange,
@@ -468,12 +508,13 @@ class _homePageState extends State<homePage> {
 
                                     ),
 
-                                    SizedBox(width: 15),
+                                    SizedBox(width: 10),
 
+                                    ////////////Tuna Salad//////////////////
                                     Container(
                                       width: 180,
                                       height: 190,
-                                      padding: EdgeInsets.only(top: 20),
+                                      padding: EdgeInsets.only(top: 10),
 
                                       child: Card(
 
@@ -488,7 +529,7 @@ class _homePageState extends State<homePage> {
                                             contentPadding: EdgeInsets.only(left: 20,top: 108,right: 18),
                                             trailing: Icon(Icons.add_shopping_cart),
                                             onTap: (){
-                                              Navigator.of(context).push(MaterialPageRoute(builder: (context)=>TunaSalad()));
+                                              Navigator.push(context, MaterialPageRoute(builder: (context)=>TunaSalad()));
 
                                             },
                                             iconColor: Colors.deepOrange,
@@ -523,7 +564,7 @@ class _homePageState extends State<homePage> {
                                     Container(
                                       width: 180,
                                       height: 190,
-                                      padding: EdgeInsets.only(top: 20),
+                                      padding: EdgeInsets.only(top: 10),
 
                                       child: Card(
 
@@ -538,7 +579,8 @@ class _homePageState extends State<homePage> {
                                             contentPadding: EdgeInsets.only(left: 20,top: 108,right: 18),
                                             trailing: Icon(Icons.add_shopping_cart),
                                             onTap: (){
-                                              Navigator.of(context).push(MaterialPageRoute(builder: (context)=>FireBurger()));
+                                              Navigator.push(context, MaterialPageRoute(builder: (context)=>FireBurger()));
+
                                             },
                                             iconColor: Colors.deepOrange,
 
@@ -563,13 +605,12 @@ class _homePageState extends State<homePage> {
 
                                     ),
 
-                                    SizedBox(width: 15),
+                                    SizedBox(width: 10),
 
-                                    /////////////////////Chocolate Lava Cakes/////////////////////
                                     Container(
                                       width: 180,
                                       height: 190,
-                                      padding: EdgeInsets.only(top: 20),
+                                      padding: EdgeInsets.only(top: 10),
 
                                       child: Card(
 
@@ -584,12 +625,12 @@ class _homePageState extends State<homePage> {
                                             contentPadding: EdgeInsets.only(left: 20,top: 108,right: 18),
                                             trailing: Icon(Icons.add_shopping_cart),
                                             onTap: (){
-                                              Navigator.of(context).push(MaterialPageRoute(builder: (context)=>ChocolateLavaCake()));
+                                              Navigator.push(context, MaterialPageRoute(builder: (context)=>ChocolateLavaCake()));
 
                                             },
                                             iconColor: Colors.deepOrange,
 
-                                            title: Text("Chocolate Lava Cake",style: TextStyle(fontSize: 14)),
+                                            title: Text("Chocolate Lava Cakes",style: TextStyle(fontSize: 14)),
 
 
                                           ),
@@ -620,38 +661,63 @@ class _homePageState extends State<homePage> {
 
 
 
-                          Column(
+                          ListView(
+                            shrinkWrap: true,
                             children: <Widget> [
-                              breakfast(),
-                            ],
+                              Column(
+                                children: <Widget> [
+                                  breakfast(),
+                                ],
 
-                          ),
-
-
-                          Column(
-
-
-                          ),
-                          Column(
+                              ),
+                            ],),
 
 
-                          ),
-                          Column(
+                          ListView(
+                            shrinkWrap: true,
+                            children: <Widget> [
+                              Column(
+                                children: <Widget> [
+                                  burger(),
+                                ],
+
+                              ),
+                            ],),
 
 
-                          ),
-                          Column(
+                          ListView(
+                            shrinkWrap: true,
+                            children: <Widget> [
+                              Column(
+                                children: <Widget> [
+                                  pizza(),
+                                ],
 
+                              ),
+                            ],),
 
-                          ),
-                          Column(
+                          ListView(
+                            shrinkWrap: true,
+                            children: <Widget> [
+                              Column(
+                                children: <Widget> [
+                                  pasta(),
+                                ],
 
+                              ),
+                            ],),
 
-                          ),
-                          Column(
+                          ListView(
+                            shrinkWrap: true,
+                            children: <Widget> [
+                              Column(
+                                children: <Widget> [
+                                  salads(),
+                                ],
 
+                              ),
+                            ],),
 
-                          ),
 
 
 
@@ -700,24 +766,26 @@ class _homePageState extends State<homePage> {
             selectedLabelStyle: TextStyle(fontSize:15,fontWeight: FontWeight.bold),
             backgroundColor: Colors.white,
 
+
+
+
             onTap: (index) {
               setState(() {
-
                 _index = index;
-                //   if (_index == 0) Navigator.pushNamed(context, '');
-                //   if (_index == 1) Navigator.pushNamed(context, '');
-                  if (_index == 2) {
-                    Navigator.of(context).push(
-                        MaterialPageRoute(builder: (context) => maps()));
-                  }
+                if (_index == 0)Navigator.push(context, MaterialPageRoute(builder: (context)=>homePage()));
+                  if (_index == 1) Navigator.push(context, MaterialPageRoute(builder: (context)=>offers()));
+                   if (_index == 2)Navigator.push(context, MaterialPageRoute(builder: (context)=>maps()));
+
+                  if (_index == 3) Navigator.push(context, MaterialPageRoute(builder: (context)=>homePage()));
+
 
               });
 
             }
         ),
 
-      );
 
-    ;
+      ),
+    );
   }
 }

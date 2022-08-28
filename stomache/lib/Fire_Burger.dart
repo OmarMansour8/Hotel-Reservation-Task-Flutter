@@ -84,12 +84,7 @@ class _FireBurgerState extends State<FireBurger> {
                           }
                         });
 
-                        Navigator.pushAndRemoveUntil(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => FireBurger()),
-                                (Route<dynamic> route) => false);
-                      },
+                        },
                       icon: Icon(
                         x,
                         size: 30,
@@ -114,7 +109,7 @@ class _FireBurgerState extends State<FireBurger> {
                     height: 200,
                   )),
               SizedBox(
-                height: 10,
+                height: 50,
               ),
               Row(
                 children: [
@@ -295,7 +290,7 @@ class _FireBurgerState extends State<FireBurger> {
                 ],
               ),
               SizedBox(
-                height: 130,
+                height: 90,
               ),
               Row(
                 children: [

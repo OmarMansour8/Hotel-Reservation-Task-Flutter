@@ -3,11 +3,11 @@ import 'package:grouped_buttons/grouped_buttons.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(VeganBreakfast());
+  runApp(SpicyChickenRanchPizza());
 }
 
-class VeganBreakfast extends StatefulWidget {
-  const VeganBreakfast({Key? key}) : super(key: key);
+class SpicyChickenRanchPizza extends StatefulWidget {
+  const SpicyChickenRanchPizza({Key? key}) : super(key: key);
 
   // This widget is the home page of your application. It is stateful, meaning
   // that it has a State object (defined below) that contains fields that affect
@@ -19,17 +19,18 @@ class VeganBreakfast extends StatefulWidget {
   // always marked "final".
 
   @override
-  State<VeganBreakfast> createState() => _VeganBreakfastState();
+  State<SpicyChickenRanchPizza> createState() => _SpicyChickenRanchPizzaState();
 }
 
-class _VeganBreakfastState extends State<VeganBreakfast> {
+class _SpicyChickenRanchPizzaState extends State<SpicyChickenRanchPizza> {
   bool isFavourite = false;
   IconData x = (Icons.favorite_outline);
   Color y = Colors.black;
   int quantity = 1;
-  double price = 50;
-  double smallPrice = 50.00;
-
+  double price = 0;
+  double smallPrice = 80.00;
+  double mediumPrice = 100.00;
+  double largePrice = 160.00;
   String selectedSize = '';
   int favourite = 0;
   @override
@@ -83,7 +84,7 @@ class _VeganBreakfastState extends State<VeganBreakfast> {
                           }
                         });
 
-                         },
+                      },
                       icon: Icon(
                         x,
                         size: 30,
@@ -101,7 +102,7 @@ class _VeganBreakfastState extends State<VeganBreakfast> {
                     width: 200,
                     decoration: BoxDecoration(
                         image: DecorationImage(
-                          image: AssetImage("images/image9.png"),
+                          image: AssetImage("images/pizza3.jpg"),
                           fit: BoxFit.cover,
                         ),
                         borderRadius: BorderRadius.circular(20)),
@@ -116,11 +117,11 @@ class _VeganBreakfastState extends State<VeganBreakfast> {
                     width: 10,
                   ),
                   Text(
-                    'Vegan Breakfast',
+                    'Spicy Checken Ranch',
                     style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                   ),
                   SizedBox(
-                      width: 215
+                    width: 175,
                   ),
                   Text('$price\$',
                       style: TextStyle(
@@ -160,25 +161,25 @@ class _VeganBreakfastState extends State<VeganBreakfast> {
               Row(
                 children: [
                   SizedBox(
-                    width: 170,
+                    width: 70,
                   ),
                   Text(
                     'Quantity',
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
                   ),
-                  // SizedBox(
-                  //   width: 150,
-                  // ),
-                  // Text(
-                  //   'Size',
-                  //   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
-                  // )
+                  SizedBox(
+                    width: 150,
+                  ),
+                  Text(
+                    'Size',
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
+                  )
                 ],
               ),
               Row(
                 children: [
                   SizedBox(
-                    width: 150,
+                    width: 47,
                   ),
                   IconButton(
                       onPressed: () {
@@ -201,28 +202,28 @@ class _VeganBreakfastState extends State<VeganBreakfast> {
                   SizedBox(
                     width: 70,
                   ),
-                  // RadioButtonGroup(
-                  //   labels: <String>['Small', 'Medium', 'large'],
-                  //   orientation: GroupedButtonsOrientation.HORIZONTAL,
-                  //   labelStyle: TextStyle(fontSize: 12),
-                  //   activeColor: Colors.deepOrangeAccent,
-                  //   onSelected: (String selected){
-                  //     selectedSize=selected;
-                  //
-                  //     setState(() {
-                  //       if(selected == 'Small'){
-                  //         price = smallPrice;
-                  //       }
-                  //       else if(selected == 'Medium'){
-                  //         price = mediumPrice;
-                  //       }
-                  //       else if(selected == 'large'){
-                  //         price = largePrice;
-                  //       }
-                  //     });
-                  //
-                  //   },
-                  // )
+                  RadioButtonGroup(
+                    labels: <String>['Small', 'Medium', 'large'],
+                    orientation: GroupedButtonsOrientation.HORIZONTAL,
+                    labelStyle: TextStyle(fontSize: 12),
+                    activeColor: Colors.deepOrangeAccent,
+                    onSelected: (String selected){
+                      selectedSize=selected;
+
+                      setState(() {
+                        if(selected == 'Small'){
+                          price = smallPrice;
+                        }
+                        else if(selected == 'Medium'){
+                          price = mediumPrice;
+                        }
+                        else if(selected == 'large'){
+                          price = largePrice;
+                        }
+                      });
+
+                    },
+                  )
                 ],
               ),
               SizedBox(
@@ -259,7 +260,7 @@ class _VeganBreakfastState extends State<VeganBreakfast> {
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
                   ),
                   SizedBox(
-                    width: 220,
+                    width: 225,
                   ),
                   Text(
                     '${price}\$',
