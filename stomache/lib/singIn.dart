@@ -1,5 +1,9 @@
+
+
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:stomache/Cloud.dart';
 import 'package:stomache/mainMenu.dart';
 
 class Sign_In extends StatefulWidget {
@@ -9,15 +13,43 @@ class Sign_In extends StatefulWidget {
 }
 
 class _Sign_InState extends State<Sign_In> {
-  String Email = '';
-  String Password = '';
+  String Email='';
+  String Password='';
+  String fullName = '';
+  String mobileNumber = '';
+  String gender='';
+  String dateOfBirth = '';
   final FirebaseAuth _auth = FirebaseAuth.instance;
   TextEditingController _controller = new TextEditingController();
+  CollectionReference users =FirebaseFirestore.instance.collection('Users');
+
+  void getData(){
+    FirebaseFirestore.instance
+        .collection('Users')
+        .doc(Email)
+        .get()
+        .then((value) {
+
+       fullName = value.get('Full Name');
+       mobileNumber = value.get('Mobile Number');
+       gender=value.get('Gender');
+       dateOfBirth = value.get('Date Of Birth');
+       print(fullName);
+       print(mobileNumber);
+       print(gender);
+       print(dateOfBirth);
+    });
+  }
+
+  // String gender = FirebaseFirestore.instance.collection('Users').;
+
   //final Widget child;
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
+
     return MaterialApp(
+
         home: Scaffold(
             body: Padding(
                 padding: EdgeInsets.all(20),
@@ -54,8 +86,10 @@ class _Sign_InState extends State<Sign_In> {
                       padding: EdgeInsets.all(1),
                       child: TextField(
                         onChanged: (value) {
-                          Email = value;
-                        },
+                          setState(() {
+                            Email = value;
+                          });}
+                        ,
                         decoration: InputDecoration(
                             labelText: 'User Name',
                             prefixIcon: Icon(Icons.account_circle)),
@@ -75,14 +109,38 @@ class _Sign_InState extends State<Sign_In> {
                       padding: EdgeInsets.all(1),
                       child: TextField(
                         onChanged: (value) {
-                          Password = value;
-                        },
+                            setState(() {
+                              Password = value;
+                            });}
+
+                        ,
                         controller: _controller,
                         decoration: InputDecoration(
                             labelText: 'Password',
                             prefixIcon: Icon(Icons.password)),
                       ),
                     ),
+                    ElevatedButton(onPressed: (){
+                      FirebaseFirestore.instance
+                          .collection('Users')
+                          .doc(Email)
+                          .get()
+                          .then((value) {
+
+                        fullName = value.get('Full Name');
+                        mobileNumber = value.get('Mobile Number');
+                        gender=value.get('Gender');
+                        dateOfBirth = value.get('Date Of Birth');
+
+                      });
+                      print(Email);
+                      print(Password);
+                      print(gender);
+                      print(dateOfBirth);
+                      print(fullName);
+                      print(mobileNumber);
+
+                    }, child: Text('omaar!!')),
                     TextButton(
                       onPressed: () {
                         Navigator.pushNamed(context, '3');
@@ -105,11 +163,19 @@ class _Sign_InState extends State<Sign_In> {
                                         email: Email, password: Password);
                                 if (newUser != null) {
                                   print('Account has been successfuly created');
-                                  Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) => homePage()));
+                                  getData();
+                                  // print(Email);
+                                  // print(Password);
+                                  // print(gender);
+                                  // print(dateOfBirth);
+                                  // print(fullName);
+                                  // print(mobileNumber);
+                                  //
+                                  Navigator.push(context, MaterialPageRoute(builder: (context) => homePage(Email: Email, Password: Password, fullName: fullName, mobileNumber: mobileNumber, gender: gender, dateOfBirth: dateOfBirth)));
                                   _controller.clear();
+
+                                  
+                                  
                                 }
                               } catch (e) {
                                 print(e);

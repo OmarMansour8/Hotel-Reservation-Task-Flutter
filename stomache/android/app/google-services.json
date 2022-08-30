@@ -29,6 +29,13 @@
             {
               "client_id": "772536170811-2mat9j4cgit79ul5uagm1kecfbse3s89.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "772536170811-ru306am7tep31jdeo951fv308jqavuqr.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "androidatc.com.stomache"
+              }
             }
           ]
         }

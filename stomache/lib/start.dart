@@ -18,14 +18,14 @@ class start extends StatelessWidget {
                 // height: 200,
                 // width: double.infinity,
 
-                  decoration: BoxDecoration(
-                      image: DecorationImage(
-                          image: AssetImage('image/unyStW.webp'),
-                          fit: BoxFit.fill,
-                          colorFilter: ColorFilter.mode(Colors.black12,
-                              BlendMode.darken)
-                      )
-                  )
+                  // decoration: BoxDecoration(
+                  //     image: DecorationImage(
+                  //         image: AssetImage('images/unyStW.webp'),
+                  //         fit: BoxFit.fill,
+                  //         colorFilter: ColorFilter.mode(Colors.black12,
+                  //             BlendMode.darken)
+                  //     )
+                  // )
               ),
               Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -35,7 +35,7 @@ class start extends StatelessWidget {
 
                       child:ClipRRect(
                         borderRadius:BorderRadius.circular(40),
-                        child: Image.asset('image/JDB2JGEUIBG27ITHDCQLBACG4Y.jpg',height: 340,width: 330,fit: BoxFit.cover,alignment: Alignment.center),
+                        child: Image.asset('images/JDB2JGEUIBG27ITHDCQLBACG4Y.jpg',height: 340,width: 330,fit: BoxFit.cover,alignment: Alignment.center),
                       ),
                     ),
                     Container(

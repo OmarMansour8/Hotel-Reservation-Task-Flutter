@@ -7,6 +7,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:stomache/main.dart';
 
 import 'package:stomache/pizza_add_to_cart.dart';
 

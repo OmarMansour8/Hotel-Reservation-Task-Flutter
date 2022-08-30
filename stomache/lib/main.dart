@@ -14,13 +14,14 @@ void main() async{
   await Firebase.initializeApp(
       options: DefaultFirebaseOptions.currentPlatform
   );
+
   runApp(MaterialApp(
       home:MyApp()));
 }
 
 class MyApp extends StatefulWidget {
 
-  const MyApp({Key? key}) : super(key: key);
+   MyApp({Key? key}) : super(key: key);
 
   @override
   State<MyApp> createState() => _MyAppState();
@@ -35,7 +36,7 @@ class _MyAppState extends State<MyApp> {
         theme: ThemeData(
 
         ),
-        home: homePage(),
+        home: start(),
 
     routes: {
 

@@ -36,6 +36,10 @@ dependencies:
   firebase_auth: ^3.6.4
   firebase_database: ^9.1.2
   cloud_firestore: ^3.4.5
+  font_awesome_flutter: ^10.1.0
+  shared_preferences: ^2.0.15
+  webview_flutter: ^3.0.4
+
 
 
 
@@ -91,6 +95,14 @@ flutter:
      - images/pasta2.png
      - images/JDB2JGEUIBG27ITHDCQLBACG4Y.jpg
      - images/unyStW.png
+     - images/fireburgersale.png
+     - images/pastasale.png
+     - images/breakfastsale.png
+     - images/cakesale.png
+     - images/pizzasale.png
+     - images/user.png
+     - images/user1.jpg
+     - images/user2.png
 
 
 

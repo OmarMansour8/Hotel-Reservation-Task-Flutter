@@ -1,25 +1,39 @@
 import 'package:flutter/material.dart';
 import 'package:stomache/mainMenu.dart';
-import 'package:stomache/map.dart';
 //import 'package:webview_flutter/webview_flutter.dart';
 import 'breakfast.dart';
 import 'burgercategory.dart';
 
-void main() {
-  runApp(offers());
-}
+
+
 
 class offers extends StatefulWidget {
 
-  const offers({Key? key}) : super(key: key);
+  String Email='';
+  String Password='';
+  String fullName = '';
+  String mobileNumber = '';
+  String gender='';
+  String dateOfBirth = '';
+
+
+  offers({required this.Email,required this.Password,required this.fullName,required this.mobileNumber,
+    required this.gender,required this.dateOfBirth});
 
   @override
-  State<offers> createState() => _offersState();
+  State<offers> createState() => _offersState(Email: Email, Password: Password, fullName: fullName, mobileNumber: mobileNumber, gender: gender, dateOfBirth: dateOfBirth);
 }
 
 class _offersState extends State<offers> {
+  String Email='';
+  String Password='';
+  String fullName = '';
+  String mobileNumber = '';
+  String gender='';
+  String dateOfBirth = '';
 
-//  late WebViewController controller;
+  _offersState({required this.Email,required this.Password,required this.fullName,required this.mobileNumber,
+    required this.gender,required this.dateOfBirth}); //  late WebViewController controller;
   var _index = 1;
 
   // This widget is the root of your application.
@@ -161,18 +175,298 @@ class _offersState extends State<offers> {
           child: Stack(
             children: <Widget>[
 
-              Row(children:<Widget> [
-                Container(
-                  child: Text(" Offers",
-                    style: TextStyle(height: 2,fontSize: 24,fontWeight: FontWeight.bold),),
-                )
 
-              ],)
+              ListView(
+                shrinkWrap: true,
+                children: <Widget> [
+                  Column(children:<Widget> [
 
 
 
 
 
+                    Row(children:<Widget> [
+
+                      Container(
+                        child: Text("  Special Offers",
+                          style: TextStyle(height: 2,fontSize: 24,fontWeight: FontWeight.bold),),
+                      )
+
+                    ],),
+                    Row(children:<Widget> [
+                      Container(
+                        width: 370,
+                        height: 170,
+                        padding: EdgeInsets.only(top: 10,left: 5),
+
+                        child: Card(
+
+                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+                          elevation: 10,
+                          color: Colors.white,
+
+
+                          child:Row(children: <Widget>[
+                            ClipRRect(
+                              borderRadius:BorderRadius.only(topLeft: Radius.circular(15),bottomLeft: Radius.circular(15)),
+                              child:
+                              Image(image: AssetImage("images/fireburgersale.png"),),
+
+                            ),
+                            Column(
+                              children: <Widget>[
+
+                                Container(
+                                  margin: EdgeInsets.only(top: 8,left: 8),
+                                  child:  Text("Fire Burger",style: TextStyle(fontSize: 18,
+                                    fontWeight: FontWeight.bold,height: 1.2,)),
+                                ),
+                                Container(
+                                  margin: EdgeInsets.only(top: 8,left: 12),
+                                  child:  Text("\n     BUY 2\nGET 1 FREE",style: TextStyle(fontSize: 15,
+                                      fontWeight: FontWeight.bold,color: Colors.deepOrange)),
+                                ),
+
+
+                                InkWell(
+
+                                    onTap: (){},
+
+                                    child: Row(children: <Widget> [
+                                      Container(
+                                        margin: EdgeInsets.only(top: 32,left: 10,right: 27),
+                                        child:  Text("33% Off",style: TextStyle(fontSize: 14,
+                                          fontWeight: FontWeight.bold,height: 1.2,),
+                                        ),
+                                      ),
+                                      Container(
+
+                                        margin: EdgeInsets.only(top: 28,left: 0,right: 0),
+                                        child: Icon(Icons.add_shopping_cart,size: 28,color: Colors.deepOrange),
+
+                                      ),
+                                    ],)
+
+                                ),
+
+
+                              ],)
+                          ],),
+
+
+
+
+                        ),
+
+                      ),
+                    ],),
+
+                    Row(children:<Widget> [
+                      Container(
+                        width: 370,
+                        height: 170,
+                        padding: EdgeInsets.only(top: 10,left: 5),
+
+                        child: Card(
+
+                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+                          elevation: 10,
+                          color: Colors.white,
+
+
+                          child:Row(children: <Widget>[
+                            ClipRRect(
+                              borderRadius:BorderRadius.only(topLeft: Radius.circular(15),bottomLeft: Radius.circular(15)),
+                              child:
+                              Image(image: AssetImage("images/pastasale.png"),),
+
+                            ),
+                            Column(
+                              children: <Widget>[
+
+                                Container(
+                                  margin: EdgeInsets.only(top: 8,left: 0),
+                                  child:  Text("Beef Pasta",style: TextStyle(fontSize: 18,
+                                    fontWeight: FontWeight.bold,height: 1.2,)),
+                                ),
+                                Container(
+                                  margin: EdgeInsets.only(top: 20,left: 0),
+                                  child:  Text("THE OFFER\n  FOR ALL\n    SIZES",style: TextStyle(fontSize: 15,
+                                      fontWeight: FontWeight.bold,color: Colors.deepOrange)),
+                                ),
+
+
+                                InkWell(
+
+                                    onTap: (){},
+
+                                    child: Row(children: <Widget> [
+                                      Container(
+                                        margin: EdgeInsets.only(top: 20,left: 10,right: 27),
+                                        child:  Text("15% Off",style: TextStyle(fontSize: 14,
+                                          fontWeight: FontWeight.bold,height: 1.2,),
+                                        ),
+                                      ),
+                                      Container(
+
+                                        margin: EdgeInsets.only(top: 14,left: 0,right: 5),
+                                        child: Icon(Icons.add_shopping_cart,size: 28,color: Colors.deepOrange),
+
+                                      ),
+                                    ],)
+
+                                ),
+
+
+                              ],)
+                          ],),
+
+
+
+
+                        ),
+
+                      ),
+                    ],),
+
+                    Row(children: <Widget> [
+
+
+                      Column(children:<Widget> [
+                        Container(
+                          width: 185,
+                          height: 240,
+                          padding: EdgeInsets.only(top: 10,left: 5),
+
+                          child: Card(
+
+                            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+                            elevation: 10,
+                            color: Colors.white,
+
+
+                            child:Column(children: <Widget>[
+                              ClipRRect(
+                                borderRadius:BorderRadius.only(topLeft: Radius.circular(15),topRight: Radius.circular(15)),
+                                child:
+                                Image(image: AssetImage("images/breakfastsale.png"),),
+
+                              ),
+                              Column(
+                                children: <Widget>[
+
+                                  Container(
+                                    margin: EdgeInsets.only(top: 8,left: 0,right: 25),
+                                    child:  Text("Fruity Pancake",style: TextStyle(fontSize:18,
+                                      fontWeight: FontWeight.bold,)),
+                                  ),
+                                  Container(
+                                    margin: EdgeInsets.only(top: 5,left: 0),
+                                    child:  Text("54\$ INSTEAD OF 90\$",style: TextStyle(fontSize: 15,
+                                        fontWeight: FontWeight.bold,color: Colors.deepOrange)),
+                                  ),
+
+
+                                  InkWell(
+
+                                      onTap: (){},
+
+                                      child: Row(children: <Widget> [
+                                        Container(
+                                          margin: EdgeInsets.only(top: 30,left: 15,right: 27),
+                                          child:  Text("40% Off",style: TextStyle(fontSize: 14,
+                                            fontWeight: FontWeight.bold,height: 1.2,),
+                                          ),
+                                        ),
+                                        Container(
+
+                                          margin: EdgeInsets.only(top: 24,left: 40,right: 5),
+                                          child: Icon(Icons.add_shopping_cart,size: 28,color: Colors.deepOrange),
+
+                                        ),
+                                      ],)
+
+                                  ),
+
+
+                                ],)
+                            ],),
+
+
+
+
+                          ),
+
+                        ),
+                      ],),
+
+
+                      Column(children:<Widget> [
+                        Container(
+                          width: 185,
+                          height: 240,
+                          padding: EdgeInsets.only(top: 10,left: 5),
+
+                          child: Card(
+
+                            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+                            elevation: 10,
+                            color: Colors.white,
+
+
+                            child:Column(children: <Widget>[
+                              ClipRRect(
+                                borderRadius:BorderRadius.only(topLeft: Radius.circular(15),topRight: Radius.circular(15)),
+                                child:
+                                Image(image: AssetImage("images/cakesale.png"),),
+
+                              ),
+                              Column(
+                                children: <Widget>[
+
+                                  Container(
+                                    margin: EdgeInsets.only(top: 8,left: 0,right: 25),
+                                    child:  Text("Chocolate Cake",style: TextStyle(fontSize:18,
+                                      fontWeight: FontWeight.bold,)),
+                                  ),
+                                  Container(
+                                    margin: EdgeInsets.only(top: 5,left: 0),
+                                    child:  Text("60\$ INSTEAD OF 80\$",style: TextStyle(fontSize: 15,
+                                        fontWeight: FontWeight.bold,color: Colors.deepOrange)),
+                                  ),
+
+
+                                  InkWell(
+
+                                      onTap: (){},
+
+                                      child: Row(children: <Widget> [
+                                        Container(
+                                          margin: EdgeInsets.only(top: 30,left: 15,right: 27),
+                                          child:  Text("25% Off",style: TextStyle(fontSize: 14,
+                                            fontWeight: FontWeight.bold,height: 1.2,),
+                                          ),
+                                        ),
+                                        Container(
+
+                                          margin: EdgeInsets.only(top: 24,left: 40,right: 5),
+                                          child: Icon(Icons.add_shopping_cart,size: 28,color: Colors.deepOrange),
+
+                                        ),
+                                      ],)
+
+                                  ),
+
+
+                                ],)
+                            ],),
+
+
+
+
+                          ),
+
+                        ),
 
 
 
@@ -180,7 +474,96 @@ class _offersState extends State<offers> {
 
 
 
-            ],),),
+
+
+
+
+                      ],),
+                    ],),
+
+                    Row(children:<Widget> [
+                      Container(
+                        width: 370,
+                        height: 170,
+                        padding: EdgeInsets.only(top: 10,left: 5),
+
+                        child: Card(
+
+                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+                          elevation: 10,
+                          color: Colors.white,
+
+
+                          child:Row(children: <Widget>[
+                            ClipRRect(
+                              borderRadius:BorderRadius.only(topLeft: Radius.circular(15),bottomLeft: Radius.circular(15)),
+                              child:
+                              Image(image: AssetImage("images/pizzasale.png"),),
+
+                            ),
+                            Column(
+                              children: <Widget>[
+
+                                Container(
+                                  margin: EdgeInsets.only(top: 8,left: 0),
+                                  child:  Text("Buffalo Pizza",style: TextStyle(fontSize:18,
+                                    fontWeight: FontWeight.bold,)),
+                                ),
+                                Container(
+                                  margin: EdgeInsets.only(top: 30,left: 0),
+                                  child:  Text("     BUY 3\nGET 1 FREE",style: TextStyle(fontSize: 15,
+                                      fontWeight: FontWeight.bold,color: Colors.deepOrange)),
+                                ),
+
+
+                                InkWell(
+
+                                    onTap: (){},
+
+                                    child: Row(children: <Widget> [
+                                      Container(
+                                        margin: EdgeInsets.only(top: 30,left: 10,right: 27),
+                                        child:  Text("25% Off",style: TextStyle(fontSize: 14,
+                                          fontWeight: FontWeight.bold,height: 1.2,),
+                                        ),
+                                      ),
+                                      Container(
+
+                                        margin: EdgeInsets.only(top: 25,left: 0,right: 5),
+                                        child: Icon(Icons.add_shopping_cart,size: 28,color: Colors.deepOrange),
+
+                                      ),
+                                    ],)
+
+                                ),
+
+
+                              ],)
+                          ],),
+
+
+
+
+                        ),
+
+                      ),
+                    ],),
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                  ],),
+                ],),],),),
 
 
 
@@ -209,8 +592,8 @@ class _offersState extends State<offers> {
               setState(() {
 
                 _index = index;
-                if (_index == 0) Navigator.push(context, MaterialPageRoute(builder: (context)=>homePage()));
-                if (_index == 2)Navigator.push(context, MaterialPageRoute(builder: (context)=>maps()));
+                if (_index == 0) Navigator.push(context, MaterialPageRoute(builder: (context)=>homePage(Email: Email, Password: Password, fullName: fullName, mobileNumber: mobileNumber, gender: gender, dateOfBirth: dateOfBirth)));
+                if (_index == 1) Navigator.push(context, MaterialPageRoute(builder: (context)=>offers(Email: Email, Password: Password, fullName: fullName, mobileNumber: mobileNumber, gender: gender, dateOfBirth: dateOfBirth)));
 
 
               });
