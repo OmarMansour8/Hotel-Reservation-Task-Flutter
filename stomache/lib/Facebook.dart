@@ -12,7 +12,7 @@ class _FacebookState extends State<Facebook> {
       home: Scaffold(appBar: AppBar(
         backgroundColor:Colors.lightBlueAccent,
         title:Text('            Facebook',style:TextStyle(fontSize: 25 ) ),
-        leading:IconButton(onPressed: (){Navigator.pushNamed(context, '1');}, icon:Icon(Icons.arrow_back_ios)),
+        leading:IconButton(onPressed: (){Navigator.pop(context);}, icon:Icon(Icons.arrow_back_ios)),
       ),
           body:WebView(
             initialUrl: 'https://www.facebook.com/',javascriptMode: JavascriptMode.unrestricted,

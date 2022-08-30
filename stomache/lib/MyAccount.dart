@@ -269,6 +269,7 @@
 //     );
 //   }
 // }
+import 'package:cloud_firestore/cloud_firestore.dart';
  import 'package:flutter/material.dart';
 import 'package:stomache/start.dart';
 import 'package:webview_flutter/webview_flutter.dart';
@@ -317,8 +318,26 @@ class _myaccountState extends State<myaccount> {
   _myaccountState({required this.Email,required this.Password,required this.fullName,required this.mobileNumber,
     required this.gender,required this.dateOfBirth});
 
+  void getData(){
+    FirebaseFirestore.instance
+        .collection('Users')
+        .doc(Email)
+        .get()
+        .then((value) {
+
+      fullName = value.get('Full Name');
+      mobileNumber = value.get('Mobile Number');
+      gender=value.get('Gender');
+      dateOfBirth = value.get('Date Of Birth');
+      print(fullName);
+      print(mobileNumber);
+      print(gender);
+      print(dateOfBirth);
+    });
+  }
   @override
   Widget build(BuildContext context) {
+    getData();
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
@@ -484,15 +503,15 @@ class _myaccountState extends State<myaccount> {
 
 
               SizedBox(height: 5,),
-              ElevatedButton(onPressed: (){
-                print(Email);
-                print(Password);
-                print(gender);
-                print(dateOfBirth);
-                print(fullName);
-                print(mobileNumber);
-
-              }, child: Text('omaar!!')),
+              // ElevatedButton(onPressed: (){
+              //   print(Email);
+              //   print(Password);
+              //   print(gender);
+              //   print(dateOfBirth);
+              //   print(fullName);
+              //   print(mobileNumber);
+              //
+              // }, child: Text('omaar!!')),
               Row(
                 children: <Widget> [
                   SizedBox(width: 20,),

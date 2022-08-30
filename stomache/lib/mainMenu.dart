@@ -139,7 +139,8 @@ class _homePageState extends State<homePage> {
               ),
               ListTile(
                 onTap: () {
-                  Navigator.pushNamed(context, '');
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>offers(Email: Email, Password: Password, fullName: fullName, mobileNumber: mobileNumber, gender: gender, dateOfBirth: dateOfBirth)));
+
                 },
 
                 contentPadding: EdgeInsets.fromLTRB(15, 0, 20, 0),

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:stomache/Settings.dart';
 class Change_Email extends StatefulWidget {
   String Email='';
   String Password='';
@@ -25,7 +27,7 @@ class _Change_EmailState extends State<Change_Email> {
   String gender='';
   String dateOfBirth = '';
 
-
+String newEmail = '';
   _Change_EmailState(
       {required this.Email,
      required this.Password,
@@ -34,7 +36,9 @@ class _Change_EmailState extends State<Change_Email> {
      required this.gender,
      required this.dateOfBirth,
      });
-
+updateData(val){
+  FirebaseFirestore.instance.collection('Users').doc(Email).update({'Email': '$val'});
+}
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -77,6 +81,11 @@ class _Change_EmailState extends State<Change_Email> {
                               hintText: 'New email',
                               prefixIcon: Icon(Icons.alternate_email_outlined)
                           ),
+                          onChanged: (val){
+                            setState(() {
+                              newEmail=val;
+                            });
+                          },
                         ),
                       ),
                       Container(
@@ -119,6 +128,12 @@ class _Change_EmailState extends State<Change_Email> {
                           ),
                         ),
                       ),
+                     SizedBox(height: 100,),
+                      ElevatedButton(onPressed: (){
+                        updateData(newEmail);
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=>setting(Email: newEmail, Password: Password, fullName: fullName, mobileNumber: mobileNumber, gender: gender, dateOfBirth: dateOfBirth)));
+
+                      }, child: Text('Save')),
                     ]
                 )
             )

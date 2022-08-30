@@ -37,6 +37,8 @@ class _mapsState extends State<maps> {
 
         appBar: AppBar(
           title: Text('Our Branch'),
+          leading: IconButton(onPressed: (){Navigator.pop(context);}, icon:Icon(Icons.arrow_back_ios)),
+          backgroundColor: Colors.deepOrangeAccent,
         ),
         body:
         GoogleMap(

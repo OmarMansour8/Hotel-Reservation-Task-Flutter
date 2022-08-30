@@ -1,10 +1,10 @@
-
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:stomache/Cloud.dart';
+import 'package:stomache/forgetPassword.dart';
 import 'package:stomache/mainMenu.dart';
+import 'package:stomache/signUp.dart';
 
 class Sign_In extends StatefulWidget {
   const Sign_In({Key? key}) : super(key: key);
@@ -13,31 +13,31 @@ class Sign_In extends StatefulWidget {
 }
 
 class _Sign_InState extends State<Sign_In> {
-  String Email='';
-  String Password='';
+  String Email = '';
+  String Password = '';
   String fullName = '';
   String mobileNumber = '';
-  String gender='';
+  String gender = '';
   String dateOfBirth = '';
   final FirebaseAuth _auth = FirebaseAuth.instance;
   TextEditingController _controller = new TextEditingController();
-  CollectionReference users =FirebaseFirestore.instance.collection('Users');
+  CollectionReference users = FirebaseFirestore.instance.collection('Users');
+  bool checkCondition = true;
 
-  void getData(){
+  void getData() {
     FirebaseFirestore.instance
         .collection('Users')
         .doc(Email)
         .get()
         .then((value) {
-
-       fullName = value.get('Full Name');
-       mobileNumber = value.get('Mobile Number');
-       gender=value.get('Gender');
-       dateOfBirth = value.get('Date Of Birth');
-       print(fullName);
-       print(mobileNumber);
-       print(gender);
-       print(dateOfBirth);
+      fullName = value.get('Full Name');
+      mobileNumber = value.get('Mobile Number');
+      gender = value.get('Gender');
+      dateOfBirth = value.get('Date Of Birth');
+      print(fullName);
+      print(mobileNumber);
+      print(gender);
+      print(dateOfBirth);
     });
   }
 
@@ -49,7 +49,6 @@ class _Sign_InState extends State<Sign_In> {
     Size size = MediaQuery.of(context).size;
 
     return MaterialApp(
-
         home: Scaffold(
             body: Padding(
                 padding: EdgeInsets.all(20),
@@ -88,13 +87,21 @@ class _Sign_InState extends State<Sign_In> {
                         onChanged: (value) {
                           setState(() {
                             Email = value;
-                          });}
-                        ,
+                          });
+                          getData();
+                        },
                         decoration: InputDecoration(
-                            labelText: 'User Name',
+                            labelText: 'Email',
                             prefixIcon: Icon(Icons.account_circle)),
                       ),
                     ),
+                    // Text((() {
+                    //   if(checkCondition=true){
+                    //     getData();
+                    //     return "";}
+                    //   else{
+                    //     return "";}
+                    // })()),
                     Container(
                       margin: EdgeInsets.all(10),
                       decoration: BoxDecoration(
@@ -109,41 +116,44 @@ class _Sign_InState extends State<Sign_In> {
                       padding: EdgeInsets.all(1),
                       child: TextField(
                         onChanged: (value) {
-                            setState(() {
-                              Password = value;
-                            });}
-
-                        ,
+                          setState(() {
+                            Password = value;
+                            // getData();
+                          });
+                        },
                         controller: _controller,
                         decoration: InputDecoration(
                             labelText: 'Password',
                             prefixIcon: Icon(Icons.password)),
                       ),
                     ),
-                    ElevatedButton(onPressed: (){
-                      FirebaseFirestore.instance
-                          .collection('Users')
-                          .doc(Email)
-                          .get()
-                          .then((value) {
-
-                        fullName = value.get('Full Name');
-                        mobileNumber = value.get('Mobile Number');
-                        gender=value.get('Gender');
-                        dateOfBirth = value.get('Date Of Birth');
-
-                      });
-                      print(Email);
-                      print(Password);
-                      print(gender);
-                      print(dateOfBirth);
-                      print(fullName);
-                      print(mobileNumber);
-
-                    }, child: Text('omaar!!')),
+                    // ElevatedButton(onPressed: (){
+                    //   FirebaseFirestore.instance
+                    //       .collection('Users')
+                    //       .doc(Email)
+                    //       .get()
+                    //       .then((value) {
+                    //
+                    //     fullName = value.get('Full Name');
+                    //     mobileNumber = value.get('Mobile Number');
+                    //     gender=value.get('Gender');
+                    //     dateOfBirth = value.get('Date Of Birth');
+                    //
+                    //   });
+                    //   print(Email);
+                    //   print(Password);
+                    //   print(gender);
+                    //   print(dateOfBirth);
+                    //   print(fullName);
+                    //   print(mobileNumber);
+                    //
+                    // }, child: Text('omaar!!')),
                     TextButton(
                       onPressed: () {
-                        Navigator.pushNamed(context, '3');
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => Forgot_Password()));
                       },
                       child: const Text('Forgot Password',
                           style: TextStyle(color: Colors.deepOrange)),
@@ -163,7 +173,7 @@ class _Sign_InState extends State<Sign_In> {
                                         email: Email, password: Password);
                                 if (newUser != null) {
                                   print('Account has been successfuly created');
-                                  getData();
+
                                   // print(Email);
                                   // print(Password);
                                   // print(gender);
@@ -171,11 +181,17 @@ class _Sign_InState extends State<Sign_In> {
                                   // print(fullName);
                                   // print(mobileNumber);
                                   //
-                                  Navigator.push(context, MaterialPageRoute(builder: (context) => homePage(Email: Email, Password: Password, fullName: fullName, mobileNumber: mobileNumber, gender: gender, dateOfBirth: dateOfBirth)));
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => homePage(
+                                              Email: Email,
+                                              Password: Password,
+                                              fullName: fullName,
+                                              mobileNumber: mobileNumber,
+                                              gender: gender,
+                                              dateOfBirth: dateOfBirth)));
                                   _controller.clear();
-
-                                  
-                                  
                                 }
                               } catch (e) {
                                 print(e);
@@ -201,7 +217,10 @@ class _Sign_InState extends State<Sign_In> {
                                 fontSize: 20, color: Colors.deepOrange),
                           ),
                           onPressed: () {
-                            Navigator.pushNamed(context, '2');
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => Sign_Up()));
                           },
                         )
                       ],

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:stomache/Settings.dart';
 class Change_Password extends StatefulWidget {
   String Email='';
   String Password='';
@@ -20,9 +22,20 @@ class _Change_PasswordState extends State<Change_Password> {
   String mobileNumber = '';
   String gender='';
   String dateOfBirth = '';
+  String newPassword='';
+  String currentPassword='';
+  String confirmPassword='';
+  bool buttonDisabled = false;
+  enableButton(){
+    buttonDisabled = true;
+  }
+
 
   _Change_PasswordState({required this.Email,required this.Password,required this.fullName,required this.mobileNumber,
     required this.gender,required this.dateOfBirth});
+  updateData(val){
+    FirebaseFirestore.instance.collection('Users').doc(Email).update({'Password': '$val'});
+  }
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -56,9 +69,39 @@ class _Change_PasswordState extends State<Change_Password> {
                         padding: EdgeInsets.all(1),
                         child: TextField(
                           decoration: InputDecoration(
-                              hintText: 'Password',
+                              hintText: 'Old Password',
                               prefixIcon:Icon(Icons.password)
                           ),
+                          onChanged: (val){
+                            setState(() {
+                              currentPassword = val;
+                            });
+                            }
+                          ,
+                        ),
+                      ),
+                      Container(
+                        margin: EdgeInsets.all(15),
+                        decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(20),
+                            boxShadow: [
+                              BoxShadow(
+                                  color: Colors.black26,
+                                  blurRadius: 6,
+                                  offset: Offset(0,2)
+                              ),]),
+                        padding: EdgeInsets.all(1),
+                        child: TextField(
+                          decoration: InputDecoration(
+                              hintText: 'New Password',
+                              prefixIcon:Icon(Icons.password)
+                          ),
+                            onChanged: (val) {
+                              setState(() {
+                                newPassword=val;
+                              });
+                            }
                         ),
                       ),
                       Container(
@@ -78,8 +121,33 @@ class _Change_PasswordState extends State<Change_Password> {
                               hintText: 'Confirm Password',
                               prefixIcon:Icon(Icons.password)
                           ),
+                          onChanged: (val) {
+                           setState(() {
+                             confirmPassword = val;
+                           });
+
+                            }
+
                         ),
                       ),
+                      SizedBox(height: 100,),
+                      Text((() {
+                      if(currentPassword==Password&&newPassword==confirmPassword){
+                        enableButton();
+                      return "";}
+                        else{
+                      return "Old must be correct and and new password must match in both fields ";}
+                      })()),
+
+
+                      ElevatedButton(onPressed:buttonDisabled ? (){
+
+
+                        updateData(newPassword);
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=>setting(Email: Email, Password: newPassword, fullName: fullName, mobileNumber: mobileNumber, gender: gender, dateOfBirth: dateOfBirth)));
+
+
+                      }:null, child: Text('Save')),
                     ]
                 )
 
