@@ -8,17 +8,51 @@ import 'main.dart';
 
 class breakfast extends StatefulWidget {
 
-  const breakfast({Key? key}) : super(key: key);
+  String Email = '';
+  String Password = '';
+  String fullName = '';
+  String mobileNumber = '';
+  String gender = '';
+  String dateOfBirth = '';
+  List<Widget> cart = [];
+  String name ='Juicy Burger';
+  String image = "images/image4.jpeg";
+
+  breakfast(
+      {required this.Email,
+        required this.Password,
+        required this.fullName,
+        required this.mobileNumber,
+        required this.gender,
+        required this.dateOfBirth,
+        required this.cart});
 
   @override
-  State<breakfast> createState() => _breakfastState();
+  State<breakfast> createState() => _breakfastState(Email: Email, Password: Password, fullName: fullName, mobileNumber: mobileNumber, gender: gender, dateOfBirth: dateOfBirth, cart: cart);
 }
 
 class _breakfastState extends State<breakfast> {
 
 //  late WebViewController controller;
   var _index = 0;
+  String Email = '';
+  String Password = '';
+  String fullName = '';
+  String mobileNumber = '';
+  String gender = '';
+  String dateOfBirth = '';
+  List<Widget> cart = [];
+  String name ='Juicy Burger';
+  String image = "images/image4.jpeg";
 
+  _breakfastState(
+      {required this.Email,
+        required this.Password,
+        required this.fullName,
+        required this.mobileNumber,
+        required this.gender,
+        required this.dateOfBirth,
+        required this.cart});
 
   // This widget is the root of your application.
   @override
@@ -97,7 +131,7 @@ class _breakfastState extends State<breakfast> {
                   contentPadding: EdgeInsets.only(left: 20,top: 108,right: 18),
                   trailing: Icon(Icons.add_shopping_cart),
                   onTap: (){
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=>FruityPancake()));
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>FruityPancake(Email: Email, Password: Password, fullName: fullName, mobileNumber: mobileNumber, gender: gender, dateOfBirth: dateOfBirth, cart: cart)));
                   },
                   iconColor: Colors.deepOrange,
 
@@ -147,7 +181,7 @@ class _breakfastState extends State<breakfast> {
                   contentPadding: EdgeInsets.only(left: 20,top: 174,right: 18),
                   trailing: Icon(Icons.add_shopping_cart),
                   onTap: (){
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=>FrenchToast()));
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>FrenchToast(Email: Email, Password: Password, fullName: fullName, mobileNumber: mobileNumber, gender: gender, dateOfBirth: dateOfBirth, cart: cart)));
                   },
                   iconColor: Colors.deepOrange,
 
@@ -203,7 +237,7 @@ class _breakfastState extends State<breakfast> {
                   contentPadding: EdgeInsets.only(left: 20,top: 108,right: 18),
                   trailing: Icon(Icons.add_shopping_cart),
                   onTap: (){
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=>BegalWithCreamCheese()));
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>BegalWithCreamCheese(Email: Email, Password: Password, fullName: fullName, mobileNumber: mobileNumber, gender: gender, dateOfBirth: dateOfBirth, cart: cart)));
                   },
                   iconColor: Colors.deepOrange,
 
@@ -250,7 +284,7 @@ class _breakfastState extends State<breakfast> {
                   contentPadding: EdgeInsets.only(left: 20,top: 108,right: 18),
                   trailing: Icon(Icons.add_shopping_cart),
                   onTap: (){
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=>CreamyEggs()));
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>CreamyEggs(Email: Email, Password: Password, fullName: fullName, mobileNumber: mobileNumber, gender: gender, dateOfBirth: dateOfBirth, cart: cart)));
                   },
                   iconColor: Colors.deepOrange,
 

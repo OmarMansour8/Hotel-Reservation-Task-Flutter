@@ -1,25 +1,29 @@
 import 'dart:math';
 import 'package:grouped_buttons/grouped_buttons.dart';
 import 'package:flutter/material.dart';
+import 'package:stomache/mainMenu.dart';
 
-void main() {
-  runApp(FruityPancake());
-}
+class FruityPancake extends StatefulWidget { String Email = '';
+String Password = '';
+String fullName = '';
+String mobileNumber = '';
+String gender = '';
+String dateOfBirth = '';
+List<Widget> cart = [];
+String name ='Juicy Burger';
+String image = "images/image4.jpeg";
 
-class FruityPancake extends StatefulWidget {
-  const FruityPancake({Key? key}) : super(key: key);
-
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
+FruityPancake(
+    {required this.Email,
+      required this.Password,
+      required this.fullName,
+      required this.mobileNumber,
+      required this.gender,
+      required this.dateOfBirth,
+      required this.cart});
 
   @override
-  State<FruityPancake> createState() => _FruityPancakeState();
+  State<FruityPancake> createState() => _FruityPancakeState(Email: Email, Password: Password, fullName: fullName, mobileNumber: mobileNumber, gender: gender, dateOfBirth: dateOfBirth, cart: cart);
 }
 
 class _FruityPancakeState extends State<FruityPancake> {
@@ -33,6 +37,118 @@ class _FruityPancakeState extends State<FruityPancake> {
   double largeTacoPrice = 40.00;
   String selectedSize = '';
   int favourite = 0;
+  String Email = '';
+  String Password = '';
+  String fullName = '';
+  String mobileNumber = '';
+  String gender = '';
+  String dateOfBirth = '';
+  List<Widget> cart = [];
+  String name ='Juicy Burger';
+  String image = "images/image4.jpeg";
+
+  _FruityPancakeState(
+      {required this.Email,
+        required this.Password,
+        required this.fullName,
+        required this.mobileNumber,
+        required this.gender,
+        required this.dateOfBirth,
+        required this.cart});
+  ordered(List<Widget> cart){
+    cart.add(
+        Row(
+          children: <Widget>[
+            Container(
+              width: 385,
+              height: 150,
+              padding: EdgeInsets.only(top: 10),
+              child: Card(
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(15)),
+                elevation: 10,
+                color: Colors.white,
+                child: Row(children: <Widget>[
+                  Row(
+                    children: <Widget>[
+                      Container(
+                        width: 200,
+                        child: Column(
+                          children: <Widget>[
+                            Row(
+                              children: <Widget>[
+                                Container(
+                                  padding: EdgeInsets.only(
+                                      top: 10, left: 15),
+                                  child: Text("${name}",
+                                      style: TextStyle(
+                                          fontSize: 20,
+                                          fontWeight: FontWeight.bold)),
+                                ),
+                              ],
+                            ),
+                            SizedBox(
+                              height: 15,
+                            ),
+                            Row(
+                              children: [
+                                Container(
+                                  padding: EdgeInsets.only(
+                                      top: 10, left: 30),
+                                  child: Text("Quantity: ${quantity}",
+                                      style: TextStyle(
+                                          fontSize: 16,
+                                          color: Colors.black54)),
+                                ),
+                              ],
+                            ),
+                            SizedBox(
+                              height: 15,
+                            ),
+                            Row(
+                              children: [
+                                Container(
+                                  padding: EdgeInsets.only(
+                                      top: 10, left: 30),
+                                  child: Text("Amount: $price",
+                                      style: TextStyle(
+                                          fontSize: 16,
+                                          color: Colors.black54)),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    width: 43,
+                  ),
+                  Row(
+                    children: <Widget>[
+                      Container(
+                        width: 130,
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.only(
+                              topRight: Radius.circular(15),
+                              bottomRight: Radius.circular(15)),
+                          child: Image(
+                            image: AssetImage("$image"),
+                            alignment: Alignment.centerRight,
+                            width: 150,
+                            height: 200,
+                          ),
+                        ),
+                      ),
+                    ],
+                  )
+                ]),
+              ),
+            ),
+          ],
+        ));
+  }
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -315,7 +431,15 @@ class _FruityPancakeState extends State<FruityPancake> {
                           Icon(Icons.shopping_cart_outlined)
                         ],
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                        ordered(cart);
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    homePage(Email: Email, Password: Password, fullName: fullName, mobileNumber: mobileNumber, gender: gender, dateOfBirth: dateOfBirth, cart: cart)));
+
+                      },
                       style: ElevatedButton.styleFrom(
                           primary: Colors.deepOrangeAccent),
                     ),

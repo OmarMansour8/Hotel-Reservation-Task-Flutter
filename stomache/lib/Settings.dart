@@ -13,22 +13,20 @@ class setting extends StatefulWidget {
   String mobileNumber = '';
   String gender = '';
   String dateOfBirth = '';
+  List<Widget> cart = [];
+  String name ='Juicy Burger';
+  String image = "images/image4.jpeg";
 
   setting(
       {required this.Email,
-      required this.Password,
-      required this.fullName,
-      required this.mobileNumber,
-      required this.gender,
-      required this.dateOfBirth});
+        required this.Password,
+        required this.fullName,
+        required this.mobileNumber,
+        required this.gender,
+        required this.dateOfBirth,
+        required this.cart});
   @override
-  State<setting> createState() => _settingState(
-      Email: Email,
-      Password: Password,
-      fullName: fullName,
-      mobileNumber: mobileNumber,
-      gender: gender,
-      dateOfBirth: dateOfBirth);
+  State<setting> createState() => _settingState(Email: Email, Password: Password, fullName: fullName, mobileNumber: mobileNumber, gender: gender, dateOfBirth: dateOfBirth, cart: cart);
 }
 
 class _settingState extends State<setting> {
@@ -38,8 +36,18 @@ class _settingState extends State<setting> {
   String mobileNumber = '';
   String gender = '';
   String dateOfBirth = '';
+  List<Widget> cart = [];
+  String name ='Juicy Burger';
+  String image = "images/image4.jpeg";
   bool swVal = false;
-
+  _settingState(
+      {required this.Email,
+        required this.Password,
+        required this.fullName,
+        required this.mobileNumber,
+        required this.gender,
+        required this.dateOfBirth,
+        required this.cart});
   //bool _darkMode=false;
   void _onChange(bool val) {
     setState(() {
@@ -54,14 +62,7 @@ class _settingState extends State<setting> {
     brightness: Brightness.dark,
   );
 
-  _settingState({
-    required this.Email,
-    required this.Password,
-    required this.fullName,
-    required this.mobileNumber,
-    required this.gender,
-    required this.dateOfBirth,
-  });
+  
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -80,7 +81,7 @@ class _settingState extends State<setting> {
                           fullName: fullName,
                           mobileNumber: mobileNumber,
                           gender: gender,
-                          dateOfBirth: dateOfBirth)));
+                          dateOfBirth: dateOfBirth,cart: cart)));
             },
             icon: Icon(Icons.arrow_back_ios),
             alignment: Alignment.topLeft,
@@ -123,13 +124,7 @@ class _settingState extends State<setting> {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => Change_Password(
-                            Email: Email,
-                            Password: Password,
-                            fullName: fullName,
-                            mobileNumber: mobileNumber,
-                            gender: gender,
-                            dateOfBirth: dateOfBirth)));
+                        builder: (context) => Change_Password(Email: Email, Password: Password, fullName: fullName, mobileNumber: mobileNumber, gender: gender, dateOfBirth: dateOfBirth, cart: cart)));
               }),
           SizedBox(height: 10, width: 10),
           ListTile(

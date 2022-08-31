@@ -2,30 +2,36 @@ import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:stomache/Settings.dart';
 class Change_Email extends StatefulWidget {
-  String Email='';
-  String Password='';
+  String Email = '';
+  String Password = '';
   String fullName = '';
   String mobileNumber = '';
-  String gender='';
+  String gender = '';
   String dateOfBirth = '';
+  List<Widget> cart = [];
 
+
+ 
 
 
 
 
   Change_Email({required this.Email,required this.Password,required this.fullName,required this.mobileNumber,
-    required this.gender,required this.dateOfBirth});
+    required this.gender,required this.dateOfBirth,required this.cart});
 
   @override
-  State<Change_Email> createState() => _Change_EmailState(Email: Email, Password: Password, fullName: fullName, mobileNumber: mobileNumber, gender: gender, dateOfBirth: dateOfBirth);
+  State<Change_Email> createState() => _Change_EmailState(Email: Email, Password: Password, fullName: fullName, mobileNumber: mobileNumber, gender: gender, dateOfBirth: dateOfBirth, cart: cart);
 }
 class _Change_EmailState extends State<Change_Email> {
-  String Email='';
-  String Password='';
+  String Email = '';
+  String Password = '';
   String fullName = '';
   String mobileNumber = '';
-  String gender='';
+  String gender = '';
   String dateOfBirth = '';
+  List<Widget> cart = [];
+
+
 
 String newEmail = '';
   _Change_EmailState(
@@ -35,7 +41,7 @@ String newEmail = '';
      required this.mobileNumber,
      required this.gender,
      required this.dateOfBirth,
-     });
+    required this.cart });
 updateData(val){
   FirebaseFirestore.instance.collection('Users').doc(Email).update({'Email': '$val'});
 }
@@ -131,7 +137,7 @@ updateData(val){
                      SizedBox(height: 100,),
                       ElevatedButton(onPressed: (){
                         updateData(newEmail);
-                        Navigator.push(context, MaterialPageRoute(builder: (context)=>setting(Email: newEmail, Password: Password, fullName: fullName, mobileNumber: mobileNumber, gender: gender, dateOfBirth: dateOfBirth)));
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=>setting(Email: Email, Password: Password, fullName: fullName, mobileNumber: mobileNumber, gender: gender, dateOfBirth: dateOfBirth, cart: cart)));
 
                       }, child: Text('Save')),
                     ]

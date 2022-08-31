@@ -17,7 +17,7 @@ class _Sign_UpState extends State<Sign_Up> {
   String dateOfBirth = '';
 
   final FirebaseAuth _auth = FirebaseAuth.instance;
-
+  List<Widget> cart=[];
   //final Widget child;
   DateTime date1=DateTime.now();
   Future<Null>selectDate(BuildContext context) async{
@@ -205,7 +205,7 @@ class _Sign_UpState extends State<Sign_Up> {
                                     print(fullName);
                                     print(mobileNumber);
 
-                                    Navigator.push(context, MaterialPageRoute(builder: (context)=>homePage(Email: Email, Password: Password, fullName: fullName, mobileNumber: mobileNumber, gender: gender, dateOfBirth: dateOfBirth)));
+                                    Navigator.push(context, MaterialPageRoute(builder: (context)=>homePage(Email: Email, Password: Password, fullName: fullName, mobileNumber: mobileNumber, gender: gender, dateOfBirth: dateOfBirth,cart: cart)));
 
 
 

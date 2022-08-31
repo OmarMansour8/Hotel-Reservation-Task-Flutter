@@ -291,33 +291,47 @@ import 'Healthy_Taco_Salad.dart';
 // }
 
 class myaccount extends StatefulWidget {
-  String Email='';
-  String Password='';
+  String Email = '';
+  String Password = '';
   String fullName = '';
   String mobileNumber = '';
-  String gender='';
+  String gender = '';
   String dateOfBirth = '';
+  List<Widget> cart = [];
+  String name ='Juicy Burger';
+  String image = "images/image4.jpeg";
 
-
-   myaccount({required this.Email,required this.Password,required this.fullName,required this.mobileNumber,
-    required this.gender,required this.dateOfBirth});
-
+  myaccount(
+      {required this.Email,
+        required this.Password,
+        required this.fullName,
+        required this.mobileNumber,
+        required this.gender,
+        required this.dateOfBirth,
+        required this.cart});
   @override
-  State<myaccount> createState() => _myaccountState(Email: Email, Password: Password, fullName: fullName, mobileNumber: mobileNumber, gender: gender, dateOfBirth: dateOfBirth);
+  State<myaccount> createState() => _myaccountState(Email: Email, Password: Password, fullName: fullName, mobileNumber: mobileNumber, gender: gender, dateOfBirth: dateOfBirth, cart: cart);
 }
 
 class _myaccountState extends State<myaccount> {
-  String Email='';
-  String Password='';
+  String Email = '';
+  String Password = '';
   String fullName = '';
   String mobileNumber = '';
-  String gender='';
+  String gender = '';
   String dateOfBirth = '';
+  List<Widget> cart = [];
+  String name ='Juicy Burger';
+  String image = "images/image4.jpeg";
 
-
-  _myaccountState({required this.Email,required this.Password,required this.fullName,required this.mobileNumber,
-    required this.gender,required this.dateOfBirth});
-
+  _myaccountState(
+      {required this.Email,
+        required this.Password,
+        required this.fullName,
+        required this.mobileNumber,
+        required this.gender,
+        required this.dateOfBirth,
+        required this.cart});
   void getData(){
     FirebaseFirestore.instance
         .collection('Users')

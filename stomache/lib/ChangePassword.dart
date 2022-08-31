@@ -2,16 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:stomache/Settings.dart';
 class Change_Password extends StatefulWidget {
-  String Email='';
-  String Password='';
+  String Email = '';
+  String Password = '';
   String fullName = '';
   String mobileNumber = '';
-  String gender='';
+  String gender = '';
   String dateOfBirth = '';
+  List<Widget> cart = [];
+
+
+
 
 
   Change_Password({required this.Email,required this.Password,required this.fullName,required this.mobileNumber,
-    required this.gender,required this.dateOfBirth});
+    required this.gender,required this.dateOfBirth,required this.cart});
   @override
   State<Change_Password> createState() => _Change_PasswordState(Email: Email, Password: Password, fullName: fullName, mobileNumber: mobileNumber, gender: gender, dateOfBirth: dateOfBirth);
 }
@@ -29,6 +33,11 @@ class _Change_PasswordState extends State<Change_Password> {
   enableButton(){
     buttonDisabled = true;
   }
+
+  List<Widget> cart = [];
+  String name ='Juicy Burger';
+  String image = "images/image4.jpeg";
+
 
 
   _Change_PasswordState({required this.Email,required this.Password,required this.fullName,required this.mobileNumber,
@@ -144,7 +153,7 @@ class _Change_PasswordState extends State<Change_Password> {
 
 
                         updateData(newPassword);
-                        Navigator.push(context, MaterialPageRoute(builder: (context)=>setting(Email: Email, Password: newPassword, fullName: fullName, mobileNumber: mobileNumber, gender: gender, dateOfBirth: dateOfBirth)));
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=>setting(Email: Email, Password: Password, fullName: fullName, mobileNumber: mobileNumber, gender: gender, dateOfBirth: dateOfBirth, cart: cart)));
 
 
                       }:null, child: Text('Save')),

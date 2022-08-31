@@ -38,13 +38,7 @@ class _MyAppState extends State<MyApp> {
         ),
         home: start(),
 
-    routes: {
 
-      'Cheesy Pizza': (context) => MyHomePage(),
-      'Healthy Taco Salad': (context) => HealthyTacoSalad(),
-
-
-    }
 
 
     );

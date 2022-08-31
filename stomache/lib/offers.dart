@@ -9,19 +9,26 @@ import 'burgercategory.dart';
 
 class offers extends StatefulWidget {
 
-  String Email='';
-  String Password='';
+  String Email = '';
+  String Password = '';
   String fullName = '';
   String mobileNumber = '';
-  String gender='';
+  String gender = '';
   String dateOfBirth = '';
+  List<Widget> cart = [];
+  String name ='Juicy Burger';
+  String image = "images/image4.jpeg";
 
-
-  offers({required this.Email,required this.Password,required this.fullName,required this.mobileNumber,
-    required this.gender,required this.dateOfBirth});
-
+  offers(
+      {required this.Email,
+        required this.Password,
+        required this.fullName,
+        required this.mobileNumber,
+        required this.gender,
+        required this.dateOfBirth,
+        required this.cart});
   @override
-  State<offers> createState() => _offersState(Email: Email, Password: Password, fullName: fullName, mobileNumber: mobileNumber, gender: gender, dateOfBirth: dateOfBirth);
+  State<offers> createState() => _offersState(Email: Email, Password: Password, fullName: fullName, mobileNumber: mobileNumber, gender: gender, dateOfBirth: dateOfBirth, cart: cart);
 }
 
 class _offersState extends State<offers> {
@@ -31,9 +38,10 @@ class _offersState extends State<offers> {
   String mobileNumber = '';
   String gender='';
   String dateOfBirth = '';
+  List<Widget> cart=[];
 
   _offersState({required this.Email,required this.Password,required this.fullName,required this.mobileNumber,
-    required this.gender,required this.dateOfBirth}); //  late WebViewController controller;
+    required this.gender,required this.dateOfBirth,required this.cart}); //  late WebViewController controller;
   var _index = 1;
 
   // This widget is the root of your application.
@@ -592,8 +600,8 @@ class _offersState extends State<offers> {
               setState(() {
 
                 _index = index;
-                if (_index == 0) Navigator.push(context, MaterialPageRoute(builder: (context)=>homePage(Email: Email, Password: Password, fullName: fullName, mobileNumber: mobileNumber, gender: gender, dateOfBirth: dateOfBirth)));
-                if (_index == 1) Navigator.push(context, MaterialPageRoute(builder: (context)=>offers(Email: Email, Password: Password, fullName: fullName, mobileNumber: mobileNumber, gender: gender, dateOfBirth: dateOfBirth)));
+                if (_index == 0) Navigator.push(context, MaterialPageRoute(builder: (context)=>homePage(Email: Email, Password: Password, fullName: fullName, mobileNumber: mobileNumber, gender: gender, dateOfBirth: dateOfBirth,cart: cart)));
+                if (_index == 1) Navigator.push(context, MaterialPageRoute(builder: (context)=>offers(Email: Email, Password: Password, fullName: fullName, mobileNumber: mobileNumber, gender: gender, dateOfBirth: dateOfBirth, cart: cart)));
 
 
               });

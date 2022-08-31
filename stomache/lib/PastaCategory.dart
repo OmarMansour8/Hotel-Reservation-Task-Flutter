@@ -7,15 +7,48 @@ import 'main.dart';
 
 class pasta extends StatefulWidget {
 
-  const pasta({Key? key}) : super(key: key);
+  String Email = '';
+  String Password = '';
+  String fullName = '';
+  String mobileNumber = '';
+  String gender = '';
+  String dateOfBirth = '';
+  List<Widget> cart = [];
+  String name ='Juicy Burger';
+  String image = "images/image4.jpeg";
+
+  pasta(
+      {required this.Email,
+        required this.Password,
+        required this.fullName,
+        required this.mobileNumber,
+        required this.gender,
+        required this.dateOfBirth,
+        required this.cart});
 
   @override
-  State<pasta> createState() => _pastaState();
+  State<pasta> createState() => _pastaState(Email: Email, Password: Password, fullName: fullName, mobileNumber: mobileNumber, gender: gender, dateOfBirth: dateOfBirth, cart: cart);
 }
 
 class _pastaState extends State<pasta> {
+  String Email = '';
+  String Password = '';
+  String fullName = '';
+  String mobileNumber = '';
+  String gender = '';
+  String dateOfBirth = '';
+  List<Widget> cart = [];
+  String name ='Juicy Burger';
+  String image = "images/image4.jpeg";
 
-//  late WebViewController controller;
+  _pastaState(
+      {required this.Email,
+        required this.Password,
+        required this.fullName,
+        required this.mobileNumber,
+        required this.gender,
+        required this.dateOfBirth,
+        required this.cart});
   var _index = 0;
 
 
@@ -47,7 +80,7 @@ class _pastaState extends State<pasta> {
                     contentPadding: EdgeInsets.only(left: 20,top: 108,right: 18),
                     trailing: Icon(Icons.add_shopping_cart),
                     onTap: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>GroundBeefPasta()));
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>GroundBeefPasta(Email: Email, Password: Password, fullName: fullName, mobileNumber: mobileNumber, gender: gender, dateOfBirth: dateOfBirth, cart: cart)));
                     },
                     iconColor: Colors.deepOrange,
 
@@ -94,7 +127,7 @@ class _pastaState extends State<pasta> {
                     trailing: Icon(Icons.add_shopping_cart),
                     iconColor: Colors.deepOrange,
                     onTap: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>SpagettiPastaNoodles()));
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>SpagettiPastaNoodles(Email: Email, Password: Password, fullName: fullName, mobileNumber: mobileNumber, gender: gender, dateOfBirth: dateOfBirth, cart: cart)));
                     },
 
                     title: Text("Spaghetti Pasta Noodles",style: TextStyle(fontSize: 14)),
@@ -137,7 +170,7 @@ class _pastaState extends State<pasta> {
                     contentPadding: EdgeInsets.only(left: 20,top: 200,right: 18),
                     trailing: Icon(Icons.add_shopping_cart),
                     onTap: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>PennePastaWithChicken()));
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>PennePastaWithChicken(Email: Email, Password: Password, fullName: fullName, mobileNumber: mobileNumber, gender: gender, dateOfBirth: dateOfBirth, cart: cart)));
                     },
                     iconColor: Colors.deepOrange,
 

@@ -8,17 +8,47 @@ import 'main.dart';
 
 class pizza extends StatefulWidget {
 
-  const pizza({Key? key}) : super(key: key);
+  String Email = '';
+  String Password = '';
+  String fullName = '';
+  String mobileNumber = '';
+  String gender = '';
+  String dateOfBirth = '';
+  List<Widget> cart = [];
+
+  pizza(
+      {required this.Email,
+        required this.Password,
+        required this.fullName,
+        required this.mobileNumber,
+        required this.gender,
+        required this.dateOfBirth,
+        required this.cart});
 
   @override
-  State<pizza> createState() => _pizzaState();
+  State<pizza> createState() => _pizzaState(Email: Email, Password: Password, fullName: fullName, mobileNumber: mobileNumber, gender: gender, dateOfBirth: dateOfBirth, cart: cart);
 }
 
 class _pizzaState extends State<pizza> {
 
 //  late WebViewController controller;
   var _index = 0;
+  String Email = '';
+  String Password = '';
+  String fullName = '';
+  String mobileNumber = '';
+  String gender = '';
+  String dateOfBirth = '';
+  List<Widget> cart = [];
 
+  _pizzaState(
+      {required this.Email,
+        required this.Password,
+        required this.fullName,
+        required this.mobileNumber,
+        required this.gender,
+        required this.dateOfBirth,
+        required this.cart});
 
   // This widget is the root of your application.
   @override
@@ -44,7 +74,7 @@ class _pizzaState extends State<pizza> {
                 contentPadding: EdgeInsets.only(left: 20,top: 200,right: 18),
                 trailing: Icon(Icons.add_shopping_cart),
                 onTap: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>VeggiPizza()));
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>VeggiPizza(Email: Email, Password: Password, fullName: fullName, mobileNumber: mobileNumber, gender: gender, dateOfBirth: dateOfBirth, cart: cart)));
                 },
                 iconColor: Colors.deepOrange,
 
@@ -92,7 +122,7 @@ class _pizzaState extends State<pizza> {
                 contentPadding: EdgeInsets.only(left: 20,top: 200,right: 18),
                 trailing: Icon(Icons.add_shopping_cart),
                 onTap: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>BuffaloChickenPizza()));
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>BuffaloChickenPizza(Email: Email, Password: Password, fullName: fullName, mobileNumber: mobileNumber, gender: gender, dateOfBirth: dateOfBirth, cart: cart)));
                 },
                 iconColor: Colors.deepOrange,
 
@@ -143,7 +173,7 @@ class _pizzaState extends State<pizza> {
                 contentPadding: EdgeInsets.only(left: 20,top: 108,right: 18),
                 trailing: Icon(Icons.add_shopping_cart),
                 onTap: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>SpicyChickenRanchPizza()));
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>SpicyChickenRanchPizza(Email: Email, Password: Password, fullName: fullName, mobileNumber: mobileNumber, gender: gender, dateOfBirth: dateOfBirth, cart: cart)));
                 },
                 iconColor: Colors.deepOrange,
 
@@ -190,7 +220,7 @@ class _pizzaState extends State<pizza> {
                 contentPadding: EdgeInsets.only(left: 20,top: 108,right: 18),
                 trailing: Icon(Icons.add_shopping_cart),
                 onTap: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>MyHomePage()));
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>MyHomePage(Email: Email, Password: Password, fullName: fullName, mobileNumber: mobileNumber, gender: gender, dateOfBirth: dateOfBirth, cart: cart)));
                 },
                 iconColor: Colors.deepOrange,
 

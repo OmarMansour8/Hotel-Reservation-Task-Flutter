@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:stomache/Cloud.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:stomache/forgetPassword.dart';
 import 'package:stomache/mainMenu.dart';
 import 'package:stomache/signUp.dart';
@@ -41,6 +41,7 @@ class _Sign_InState extends State<Sign_In> {
     });
   }
 
+  List<Widget> cart=[];
   // String gender = FirebaseFirestore.instance.collection('Users').;
 
   //final Widget child;
@@ -190,7 +191,7 @@ class _Sign_InState extends State<Sign_In> {
                                               fullName: fullName,
                                               mobileNumber: mobileNumber,
                                               gender: gender,
-                                              dateOfBirth: dateOfBirth)));
+                                              dateOfBirth: dateOfBirth,cart: cart)));
                                   _controller.clear();
                                 }
                               } catch (e) {
